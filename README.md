@@ -5,7 +5,15 @@ This is the code of website [Ingegno Blockly4Arduino](http://ingegno.be/Manuals/
 
 *Blockly for Arduino or Genuino* allows to program your Arduino with blocks, ideal for novices to learn the basics. Blockly for Arduino is also touch friendly so can be used on a tablet.
 
-At the moment it is aimed at the LedUpKidz project of Ingegno, so as to allow to program your LedUpKidz graphically.
+At the moment it is aimed at the LedUpKidz project of Ingegno, so as to allow to program your LedUpKidz graphically. 
+
+## Screenshots
+
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex1.png?raw=true)
+
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex2.png?raw=true)
+
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex3.png?raw=true)
 
 # For developers
 
