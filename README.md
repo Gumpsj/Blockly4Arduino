@@ -17,11 +17,13 @@ At the moment it is aimed at the LedUpKidz project of Ingegno, so as to allow to
 
 # For developers
 
-The code is based on the branch *arduino* from [https://github.com/bmcage/blockly]. The directory structure locally should be:
+The code is based on the branch *arduino* from [bmcage/blockly](https://github.com/bmcage/blockly). The directory structure locally should be:
 
-./git/blockly (branch arduino from [bmcage](https://github.com/bmcage/blockly))
-./git/closure-library (from [google](https://github.com/google/closure-library))
-./git/Blockly4Arduino
+`./git/blockly` (branch arduino from [bmcage](https://github.com/bmcage/blockly))
+
+`./git/closure-library` (from [google](https://github.com/google/closure-library))
+
+`./git/Blockly4Arduino`
 
 In blockly run `python build.py` to build blockly. In Blockly4Arduino run `python create_site.py`, which will update Blockly4Arduino with the files needed for the website.
 
