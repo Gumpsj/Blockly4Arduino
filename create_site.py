@@ -16,8 +16,10 @@ os.mkdir(root_dir, 0775)
 orig_dir = "../blockly"
 
 dirs = ['blocks',
+	'blocks/arduino',
         'core',
-        'demos/blocklyduino',
+        'core/ardublockly',
+        'blockly4Arduino',
         'generators/arduino',
         'media',
         'msg',
@@ -32,7 +34,7 @@ files = ['arduino_compressed.js',
          'package.json',
          'generators/arduino.js',
          ]
-app = ['demos/blocklyduino/indes.html']
+app = ['blockly4Arduino/index.html']
 
 for dirname in dirs:
     parts = dirname.split('/')
