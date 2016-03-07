@@ -1,11 +1,15 @@
 # Blockly4Arduino
-Code repo of [Ingegno](http://ingegno.be) website with [Blockly](https://developers.google.com/blockly/) for [Arduino](http://arduino.cc) 
 
-This is the code of website [Ingegno Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/demos/blocklyduino/), created for the LedUpKidz project.
+Graphically program your Arduino on Chrome OS, or Windows, Apple, Linux via the Chrome, Firefox ... browser. Program it if online with
 
+1. [English Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/blockly4Arduino/index_en.html)
+
+2. [Nederlandse Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/blockly4Arduino/index.html)
+
+To use off-line, download this code repo as a zip file, extract on your PC or on the Intranet, and run it by clickling in your file explorer on the file `Blockly4Arduino/blockly4Arduino/index_en.html`.
+
+This is the code of website created for the LedUpKidz project, but usable also more generally.
 *Blockly for Arduino or Genuino* allows to program your Arduino with blocks, ideal for novices to learn the basics. Blockly for Arduino is also touch friendly so can be used on a tablet.
-
-At the moment it is aimed at the LedUpKidz project of Ingegno, so as to allow to program your LedUpKidz graphically. 
 
 ## Translations
 Would you like to submit a translation of the website for your language? This can be done easily:
