@@ -13,12 +13,11 @@ if os.path.isdir(root_dir):
 
 os.mkdir(root_dir, 0775)
 
-orig_dir = "../blockly"
+orig_dir = "../ardublockly/blockly"
 
 dirs = ['blocks',
 	'blocks/arduino',
         'core',
-        'core/ardublockly',
         'blockly4Arduino',
         'generators/arduino',
         'media',

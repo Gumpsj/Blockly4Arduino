@@ -31,13 +31,15 @@ We plan to make the demo site more easily translatable. At the moment, to obtain
 
 # For developers
 
-The code is based on the branch *arduino* from [bmcage/blockly](https://github.com/bmcage/blockly). The directory structure locally should be:
+The code is based on the branch *blockly4arduino* from [bmcage/ardublockly](https://github.com/bmcage/ardublockly). The directory structure locally should be:
 
-`./git/blockly` (branch arduino from [bmcage](https://github.com/bmcage/blockly))
+`./git/ardublockly` (branch blockly4arduino from [bmcage](https://github.com/bmcage/ardublockly)
 
 `./git/closure-library` (from [google](https://github.com/google/closure-library))
 
 `./git/Blockly4Arduino`
 
-In blockly run `python build.py` to build blockly. In Blockly4Arduino run `python create_site.py`, which will update Blockly4Arduino with the files needed for the website.
+In ardublockly run `git submodule update --init --recursive` to obtain the submodules. Then in de subdirectory `blockly` run `python build.py` to build the blockly version of ardublockly. 
+
+In Blockly4Arduino run `python create_site.py`, which will update Blockly4Arduino with the files needed for the website.
 

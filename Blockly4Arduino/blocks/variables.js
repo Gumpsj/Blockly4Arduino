@@ -27,6 +27,7 @@
 goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
+goog.require('Blockly.Types');
 
 
 /**
@@ -85,7 +86,24 @@ Blockly.Blocks['variables_get'] = {
     xmlBlock.setAttribute('type', this.contextMenuType_);
     option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
     options.push(option);
-  }
+  },
+  /**
+   * @return {!string} Retrieves the type (stored in varType) of this block.
+   * @this Blockly.Block
+   */
+  getBlockType: function() {
+    return [Blockly.Types.UNDEF, this.getFieldValue('VAR')];
+  },
+  /**
+   * Gets the stored type of the variable indicated in the argument. As only one
+   * variable is stored in this block, no need to check input
+   * @this Blockly.
+   * @param {!string} varName Name of this block variable to check type.
+   * @return {!string} String to indicate the type of this block.
+   */
+  getVarType: function(varName) {
+    return [Blockly.Types.UNDEF, this.getFieldValue('VAR')];
+  },
 };
 
 Blockly.Blocks['variables_set'] = {
@@ -136,5 +154,14 @@ Blockly.Blocks['variables_set'] = {
     }
   },
   contextMenuType_: 'variables_get',
-  customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
+  customContextMenu: Blockly.Blocks['variables_get'].customContextMenu,
+  /**
+   * Searches through the nested blocks to find a variable type.
+   * @this Blockly.Block
+   * @param {!string} varName Name of this block variable to check type.
+   * @return {string} String to indicate the type of this block.
+   */
+  getVarType: function(varName) {
+    return Blockly.Types.getChildBlockType(this);
+  }
 };

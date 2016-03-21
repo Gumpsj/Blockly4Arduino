@@ -157,6 +157,21 @@ Blockly.Procedures.rename = function(text) {
  */
 Blockly.Procedures.flyoutCategory = function(workspace) {
   var xmlList = [];
+  if (Blockly.Blocks['arduino_functions']) {
+    // <block type="arduino_functions" gap="16"></block>
+    var block = goog.dom.createDom('block');
+    block.setAttribute('type', 'arduino_functions');
+    block.setAttribute('gap', 16);
+    // If this parent block present already in the workspace show as disabled 
+    var workspaceTopBlocks = workspace.getTopBlocks();
+    for (var i = 0; i < workspaceTopBlocks.length; i++) {
+      if (workspaceTopBlocks[i].getArduinoLoopsInstance &&
+          workspaceTopBlocks[i].getArduinoLoopsInstance()) {
+        block.setAttribute('disabled', true);
+      }
+    }
+    xmlList.push(block);
+  }
   if (Blockly.Blocks['procedures_defnoreturn']) {
     // <block type="procedures_defnoreturn" gap="16"></block>
     var block = goog.dom.createDom('block');

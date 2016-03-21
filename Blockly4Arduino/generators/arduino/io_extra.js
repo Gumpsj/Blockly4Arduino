@@ -9,10 +9,23 @@
  */
 'use strict';
 
-goog.provide('Blockly.Arduino.IO');
+goog.provide('Blockly.Arduino.IO_EXTRA');
 
 goog.require('Blockly.Arduino');
 
+
+/**
+ * Function for assigning a variable a specific pin.
+ * Arduino code: setup { pinMode(X, OUTPUT); }
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {string} Completed code.
+ */
+Blockly.Arduino['io_pin_dig'] = function(block) {
+  var pin = block.getFieldValue('PIN');
+
+  var code = pin;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
 
 /**
  * Function for 'set pin' (X) to a state (Y).
@@ -21,18 +34,18 @@ goog.require('Blockly.Arduino');
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['io_digitalwrite'] = function(block) {
+Blockly.Arduino['io_digitalwrite_var'] = function(block) {
   var pin = block.getFieldValue('PIN');
   var stateOutput = Blockly.Arduino.valueToCode(
-      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
-
+      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW'
+  
   Blockly.Arduino.reservePin(
       block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Digital Write');
-
+  
   var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
   Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
-
-  var code = 'digitalWrite(' + pin + ', ' + stateOutput + ');\n';
+  
+  var code = 'digitalWrite(' + pin + ', ' + stateOutput + ');\n'
   return code;
 };
 
@@ -43,7 +56,7 @@ Blockly.Arduino['io_digitalwrite'] = function(block) {
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['io_digitalread'] = function(block) {
+Blockly.Arduino['io_digitalread_var'] = function(block) {
   var pin = block.getFieldValue('PIN');
   Blockly.Arduino.reservePin(
       block, pin, Blockly.Arduino.PinTypes.INPUT, 'Digital Read');
@@ -56,35 +69,13 @@ Blockly.Arduino['io_digitalread'] = function(block) {
 };
 
 /**
- * Function for setting the state (Y) of a built-in LED (X).
- * Arduino code: setup { pinMode(X, OUTPUT); }
- *               loop  { digitalWrite(X, Y); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {string} Completed code.
- */
-Blockly.Arduino['io_builtin_led'] = function(block) {
-  var pin = block.getFieldValue('BUILT_IN_LED');
-  var stateOutput = Blockly.Arduino.valueToCode(
-      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
-
-  Blockly.Arduino.reservePin(
-      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Set LED');
-
-  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
-  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
-
-  var code = 'digitalWrite(' + pin + ', ' + stateOutput + ');\n';
-  return code;
-};
-
-/**
  * Function for setting the state (Y) of an analogue output (X).
  * Arduino code: setup { pinMode(X, OUTPUT); }
  *               loop  { analogWrite(X, Y);  }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['io_analogwrite'] = function(block) {
+Blockly.Arduino['io_analogwrite_var'] = function(block) {
   var pin = block.getFieldValue('PIN');
   var stateOutput = Blockly.Arduino.valueToCode(
       block, 'NUM', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -114,7 +105,7 @@ Blockly.Arduino['io_analogwrite'] = function(block) {
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['io_analogread'] = function(block) {
+Blockly.Arduino['io_analogread_var'] = function(block) {
   var pin = block.getFieldValue('PIN');
   Blockly.Arduino.reservePin(
       block, pin, Blockly.Arduino.PinTypes.INPUT, 'Analogue Read');
@@ -123,16 +114,5 @@ Blockly.Arduino['io_analogread'] = function(block) {
   Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
 
   var code = 'analogRead(' + pin + ')';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-/**
- * Value for defining a digital pin state.
- * Arduino code: loop { HIGH / LOW }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code with order of operation.
- */
-Blockly.Arduino['io_highlow'] = function(block) {
-  var code = block.getFieldValue('STATE');
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

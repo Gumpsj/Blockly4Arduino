@@ -27,6 +27,7 @@
 goog.provide('Blockly.Blocks.lists');
 
 goog.require('Blockly.Blocks');
+goog.require('Blockly.Types');
 
 
 /**
@@ -222,7 +223,7 @@ Blockly.Blocks['lists_repeat'] = {
         {
           "type": "input_value",
           "name": "NUM",
-          "check": "Number"
+          "check": Blockly.Types.NUMBER.compatibles()
         }
       ],
       "output": "Array",
@@ -245,10 +246,11 @@ Blockly.Blocks['lists_length'] = {
         {
           "type": "input_value",
           "name": "VALUE",
-          "check": ['String', 'Array']
+          "check": Blockly.Types.TEXT
+                   .compatibles().concat('Array')
         }
       ],
-      "output": 'Number',
+      "output": Blockly.Types.NUMBER.basicType,
       "colour": Blockly.Blocks.lists.HUE,
       "tooltip": Blockly.Msg.LISTS_LENGTH_TOOLTIP,
       "helpUrl": Blockly.Msg.LISTS_LENGTH_HELPURL
@@ -268,10 +270,11 @@ Blockly.Blocks['lists_isEmpty'] = {
         {
           "type": "input_value",
           "name": "VALUE",
-          "check": ['String', 'Array']
+          "check": Blockly.Types.TEXT
+                   .compatibles().concat('Array')
         }
       ],
-      "output": 'Boolean',
+      "output": Blockly.Types.BOOLEAN.basicType,
       "colour": Blockly.Blocks.lists.HUE,
       "tooltip": Blockly.Msg.LISTS_ISEMPTY_TOOLTIP,
       "helpUrl": Blockly.Msg.LISTS_ISEMPTY_HELPURL
@@ -290,7 +293,7 @@ Blockly.Blocks['lists_indexOf'] = {
          [Blockly.Msg.LISTS_INDEX_OF_LAST, 'LAST']];
     this.setHelpUrl(Blockly.Msg.LISTS_INDEX_OF_HELPURL);
     this.setColour(Blockly.Blocks.lists.HUE);
-    this.setOutput(true, 'Number');
+    this.setOutput(true, Blockly.Types.NUMBER.basicType);
     this.appendValueInput('VALUE')
         .setCheck('Array')
         .appendField(Blockly.Msg.LISTS_INDEX_OF_INPUT_IN_LIST);
@@ -406,7 +409,7 @@ Blockly.Blocks['lists_getIndex'] = {
     this.removeInput('ORDINAL', true);
     // Create either a value 'AT' input or a dummy input.
     if (isAt) {
-      this.appendValueInput('AT').setCheck('Number');
+      this.appendValueInput('AT').setCheck(Blockly.Types.NUMBER.compatibles());
       if (Blockly.Msg.ORDINAL_NUMBER_SUFFIX) {
         this.appendDummyInput('ORDINAL')
             .appendField(Blockly.Msg.ORDINAL_NUMBER_SUFFIX);
@@ -506,7 +509,7 @@ Blockly.Blocks['lists_setIndex'] = {
     this.removeInput('ORDINAL', true);
     // Create either a value 'AT' input or a dummy input.
     if (isAt) {
-      this.appendValueInput('AT').setCheck('Number');
+      this.appendValueInput('AT').setCheck(Blockly.Types.NUMBER.compatibles());
       if (Blockly.Msg.ORDINAL_NUMBER_SUFFIX) {
         this.appendDummyInput('ORDINAL')
             .appendField(Blockly.Msg.ORDINAL_NUMBER_SUFFIX);
@@ -605,7 +608,8 @@ Blockly.Blocks['lists_getSublist'] = {
     this.removeInput('ORDINAL' + n, true);
     // Create either a value 'AT' input or a dummy input.
     if (isAt) {
-      this.appendValueInput('AT' + n).setCheck('Number');
+      this.appendValueInput('AT' + n).setCheck(
+          Blockly.Types.NUMBER.compatibles());
       if (Blockly.Msg.ORDINAL_NUMBER_SUFFIX) {
         this.appendDummyInput('ORDINAL' + n)
             .appendField(Blockly.Msg.ORDINAL_NUMBER_SUFFIX);
@@ -657,10 +661,10 @@ Blockly.Blocks['lists_split'] = {
     this.setHelpUrl(Blockly.Msg.LISTS_SPLIT_HELPURL);
     this.setColour(Blockly.Blocks.lists.HUE);
     this.appendValueInput('INPUT')
-        .setCheck('String')
+        .setCheck(Blockly.Types.TEXT.compatibles())
         .appendField(dropdown, 'MODE');
     this.appendValueInput('DELIM')
-        .setCheck('String')
+        .setCheck(Blockly.Types.TEXT.compatibles())
         .appendField(Blockly.Msg.LISTS_SPLIT_WITH_DELIMITER);
     this.setInputsInline(true);
     this.setOutput(true, 'Array');
@@ -683,9 +687,11 @@ Blockly.Blocks['lists_split'] = {
   updateType_: function(newMode) {
     if (newMode == 'SPLIT') {
       this.outputConnection.setCheck('Array');
-      this.getInput('INPUT').setCheck('String');
+      this.getInput('INPUT').setCheck(
+          Blockly.Types.TEXT.compatibles());
     } else {
-      this.outputConnection.setCheck('String');
+      this.outputConnection.setCheck(
+          Blockly.Types.TEXT.compatibles());
       this.getInput('INPUT').setCheck('Array');
     }
   },

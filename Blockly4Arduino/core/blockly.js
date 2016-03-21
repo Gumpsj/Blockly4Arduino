@@ -41,6 +41,7 @@ goog.require('Blockly.FieldTextInput');
 goog.require('Blockly.FieldVariable');
 goog.require('Blockly.Generator');
 goog.require('Blockly.Msg');
+goog.require('Blockly.StaticTyping');
 goog.require('Blockly.Procedures');
 goog.require('Blockly.Toolbox');
 goog.require('Blockly.WidgetDiv');
@@ -50,8 +51,6 @@ goog.require('Blockly.utils');
 goog.require('goog.color');
 goog.require('goog.userAgent');
 
-//ardublockly added require
-goog.require('Blockly.StaticTyping');
 
 // Turn off debugging when compiled.
 var CLOSURE_DEFINES = {'goog.DEBUG': false};
@@ -71,7 +70,7 @@ Blockly.HTML_NS = 'http://www.w3.org/1999/xhtml';
  * The richness of block colours, regardless of the hue.
  * Must be in the range of 0 (inclusive) to 1 (exclusive).
  */
-Blockly.HSV_SATURATION = 0.45;
+Blockly.HSV_SATURATION = 0.55;
 /**
  * The intensity of block colours, regardless of the hue.
  * Must be in the range of 0 (inclusive) to 1 (exclusive).

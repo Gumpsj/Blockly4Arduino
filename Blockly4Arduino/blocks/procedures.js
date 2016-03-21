@@ -27,6 +27,7 @@
 goog.provide('Blockly.Blocks.procedures');
 
 goog.require('Blockly.Blocks');
+goog.require('Blockly.Types');
 
 
 /**
@@ -48,7 +49,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
         .appendField(Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE)
         .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
-    this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
+    //this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
     if (Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT) {
       this.setCommentText(Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT);
     }
@@ -337,7 +338,45 @@ Blockly.Blocks['procedures_defnoreturn'] = {
       }
     }
   },
-  callType_: 'procedures_callnoreturn'
+  callType_: 'procedures_callnoreturn',
+  /** @return {!string} This block does not define type, so 'undefined' */
+  getVarType: function(varName) {
+    return Blockly.Types.UNDEF;
+  },
+  /** Contains the type of the arguments added with mutators. */
+  argsTypes: {},
+  /**
+   * Searches through a list of variables with type to assign the type of the
+   * arguments.
+   * @this Blockly.Block
+   * @param {Array<string>} existingVars Associative array variable already
+   *     defined, names as key, type as value.
+   */
+  setArgsType: function(existingVars) {
+    var varNames = this.arguments_;
+
+    // Check if variable has been defined already and save type
+    for (var name in existingVars) {
+      for (var i = 0, length_ = varNames.length; i < length_; i++) {
+        if (name === varNames[i]) {
+          this.argsTypes[name] = existingVars[name];
+        }
+      }
+    }
+  },
+  /**
+   * Retrieves the type of the arguments, types defined at setArgsType.
+   * @this Blockly.Block
+   * @return {string} Type of the argument indicated in the input.
+   */
+  getArgType: function(varName) {
+    for (var name in this.argsTypes) {
+      if (name == varName) {
+        return this.argsTypes[varName];
+      }
+    }
+    return null;
+  }
 };
 
 Blockly.Blocks['procedures_defreturn'] = {
@@ -357,7 +396,7 @@ Blockly.Blocks['procedures_defreturn'] = {
     this.appendValueInput('RETURN')
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
-    this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
+    //this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
     if (Blockly.Msg.PROCEDURES_DEFRETURN_COMMENT) {
       this.setCommentText(Blockly.Msg.PROCEDURES_DEFRETURN_COMMENT);
     }
@@ -390,7 +429,30 @@ Blockly.Blocks['procedures_defreturn'] = {
   getVars: Blockly.Blocks['procedures_defnoreturn'].getVars,
   renameVar: Blockly.Blocks['procedures_defnoreturn'].renameVar,
   customContextMenu: Blockly.Blocks['procedures_defnoreturn'].customContextMenu,
-  callType_: 'procedures_callreturn'
+  callType_: 'procedures_callreturn',
+  getVarType: Blockly.Blocks['procedures_defnoreturn'].getVarType,
+  argsTypes: {},
+  setArgsType: Blockly.Blocks['procedures_defnoreturn'].setArgsType,
+  getArgType: Blockly.Blocks['procedures_defnoreturn'].getArgType,
+  /**
+   * Searches through the nested blocks in the return input to find a variable
+   * type or returns NULL.
+   * @this Blockly.Block
+   * @return {string} String to indicate the type or NULL.
+   */
+  getReturnType: function() {
+    var returnType = Blockly.Types.NULL;
+    var returnBlock = this.getInputTargetBlock('RETURN');
+    if (returnBlock) {
+      // First check if the block itself has a type already
+      if (returnBlock.getBlockType) {
+        returnType = returnBlock.getBlockType();
+      } else {
+        returnType = Blockly.Types.getChildBlockType(returnBlock);
+      }
+    }
+    return returnType;
+  }
 };
 
 Blockly.Blocks['procedures_mutatorcontainer'] = {
@@ -703,7 +765,7 @@ Blockly.Blocks['procedures_ifreturn'] = {
    */
   init: function() {
     this.appendValueInput('CONDITION')
-        .setCheck('Boolean')
+        .setCheck(Blockly.Types.BOOLEAN.compatibles())
         .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);
     this.appendValueInput('VALUE')
         .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
