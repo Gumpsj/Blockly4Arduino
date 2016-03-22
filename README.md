@@ -14,7 +14,7 @@ This is the code of website created for the LedUpKidz project, but usable also m
 ## Translations
 Would you like to submit a translation of the website for your language? This can be done easily:
 
-1. from [our blockly branch](https://github.com/bmcage/blockly/tree/arduino/msg/json) copy from the file en.json the string codes starting with `ARD`, as well as the codes under those, to your language file, eg `de.json`
+1. from [our ardublockly branch](https://github.com/bmcage/ardublockly/blockly/tree/arduino/msg/json) copy from the file en.json the string codes starting with `ARD`, as well as the codes under those, to your language file, eg `de.json`
 2. Translate them. 
 3. Send them to us, or do a pull request against our branch of blockly.
 
