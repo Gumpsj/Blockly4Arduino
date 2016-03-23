@@ -8,6 +8,14 @@ Graphically program your Arduino on Chrome OS, or Windows, Apple, Linux via the 
 
 To use off-line, download this code repo as a zip file, extract on your PC or on the Intranet, and run it by clickling in your file explorer on the file `Blockly4Arduino/blockly4Arduino/index_en.html`.
 
+## Manual and examples
+
+Dutch: [Nederlandse handleiding](http://ingegno.be/01-blockly-4-arduino/)
+
+Example blocks: [The basic Arduino sketches, Ingegno UGO&TESS blocks, and Ingegno LedUpKidz](http://ingegno.be/01-blockly-4-arduino/#Voorbeeld_blok_sketches). Blockly4Arduino can do it!
+
+## General Info
+
 This is the code of website created for the LedUpKidz project, but usable also more generally.
 *Blockly for Arduino or Genuino* allows to program your Arduino with blocks, ideal for novices to learn the basics. Blockly for Arduino is also touch friendly so can be used on a tablet.
 
