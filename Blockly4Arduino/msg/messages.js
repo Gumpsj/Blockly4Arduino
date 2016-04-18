@@ -1100,6 +1100,17 @@ Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = 'http://c2.com/cgi/wiki?GuardClause';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 //Arduino blocks define as a specific type
+Blockly.Msg.ARD_TYPE_CHAR = 'Character';
+Blockly.Msg.ARD_TYPE_TEXT = 'Text';
+Blockly.Msg.ARD_TYPE_BOOL = 'Boolean';
+Blockly.Msg.ARD_TYPE_SHORTPOS = 'Short Positive Number';
+Blockly.Msg.ARD_TYPE_NUMBER = 'Number';
+Blockly.Msg.ARD_TYPE_LONG = 'Large Number';
+Blockly.Msg.ARD_TYPE_DECIMAL = 'Decimal';
+Blockly.Msg.ARD_TYPE_ARRAY = 'Array';
+Blockly.Msg.ARD_TYPE_NULL = 'Null';
+Blockly.Msg.ARD_TYPE_UNDEF = 'Undefined';
+Blockly.Msg.ARD_TYPE_CHILDBLOCKMISSING = 'ChildBlockMissing';
 Blockly.Msg.ARD_HIGH = 'HIGH';
 Blockly.Msg.ARD_LOW = 'LOW';
 Blockly.Msg.ARD_ANALOGREAD = 'read analog pin#';
@@ -1128,6 +1139,7 @@ Blockly.Msg.ARD_FUN_RUN_DECL = 'Arduino define up front:';
 Blockly.Msg.ARD_FUN_RUN_SETUP = 'Arduino run first:';
 Blockly.Msg.ARD_FUN_RUN_LOOP = 'Arduino loop forever:';
 Blockly.Msg.ARD_FUN_RUN_TIP = 'Defines the Arduino setup() and loop() functions.';
+Blockly.Msg.ARD_FUN_RUN_DECL_TIP = 'Code you want to declare up front (use this e.g. for variables you need in setup)';
 Blockly.Msg.ARD_PIN_WARN1 = 'Pin %1 is needed for %2 as pin %3. Already used as %4.';
 Blockly.Msg.ARD_SERIAL_SETUP = 'Setup';
 Blockly.Msg.ARD_SERIAL_SPEED = ':  speed to';
@@ -1252,3 +1264,18 @@ Blockly.Msg.UPLOAD_CLICK_3 = '  2. select all the code, and copy (CTRL+A and CTR
 Blockly.Msg.UPLOAD_CLICK_4 = '  3. In the Arduino IDE or in a http://codebender.cc sketch, paste the code (CTRL+V)';
 Blockly.Msg.UPLOAD_CLICK_5 = '  4. Upload to your connected Arduino';
 
+//MICRODUINO BLOCKS
+Blockly.Msg.ARD_MD_NOSERVO = 'Geen Servo gekoppeld';
+Blockly.Msg.ARD_MD_180SERVO = '0~180 graden Servo';
+Blockly.Msg.ARD_MD_360SERVO = '0~360 graden Servo';
+Blockly.Msg.ARD_MD_SERVOTYPE_TIP = 'Select the type of Servo you attach to the Servo connnector'
+Blockly.Msg.ARD_MD_SERVOCON = 'Servo Motor Connector.';
+Blockly.Msg.ARD_MD_SERVOCON_TOP = 'Define top Servo';
+Blockly.Msg.ARD_MD_SERVOCON_BOTTOM = 'Define bottom Servo';
+Blockly.Msg.ARD_MD_SERVOCON_TYPE = 'Type:';
+Blockly.Msg.ARD_MD_SERVOCON_TIP = 'Servo Motor Connector, can control two Servo (top and bottom). You have to give the servo a name, and what type it is (no servo attached, a 180 degree servo or a 360 degree servo.';
+Blockly.Msg.ARD_MD_SERVO_STEP_WARN1 = 'A Servo configuration block must be added to the hub to use this block!';
+Blockly.Msg.ARD_MD_SERVO_STEP_WARN2 = 'A Name input must be added to the Servo configuration block!';
+Blockly.Msg.ARD_MD_SERVO_STEP_WARN3 = 'Selected servo does not exist any more, please select a new one.';
+Blockly.Msg.ARD_MD_SERVO_WRITE = 'set 180 degree Servo ';
+Blockly.Msg.ARD_MD_SERVO_READ = 'read Servo ';

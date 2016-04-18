@@ -126,6 +126,7 @@ function auto_save_and_restore_blocks() {
   };
 }
 
+
 /**
  * Bind an event to a function call.
  * @param {!Element} element Element upon which to listen.
@@ -185,16 +186,16 @@ function onSuccess() {
 function load_by_url(uri) {
   ajax = createAJAX();
   if (!ajax) {
-　　   alert ('Not compatible with XMLHttpRequest');
-　　   return 0;
-　  }
+       alert ('Not compatible with XMLHttpRequest');
+       return 0;
+  }
   if (ajax.overrideMimeType) {
     ajax.overrideMimeType('text/xml');
   }
 
-　　ajax.onreadystatechange = onSuccess;
-　　ajax.open ("GET", uri, true);
-　　ajax.send ("");
+    ajax.onreadystatechange = onSuccess;
+    ajax.open ("GET", uri, true);
+    ajax.send ("");
 }
 
 function uploadCode(code, callback) {
@@ -277,3 +278,5 @@ function resetClick() {
         }
     });
 }
+
+// 

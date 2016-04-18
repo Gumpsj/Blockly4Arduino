@@ -28,6 +28,8 @@ dirs = ['blocks',
         'libs/bootstrap/js',
         'libs/jquery',
         'media',
+        'media/mark',
+        'media/MD',
         'msg',
         'msg/js',
         ]
