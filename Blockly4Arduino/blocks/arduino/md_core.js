@@ -114,51 +114,51 @@ Blockly.Blocks['mcookie_hub'] = {
     this.appendValueInput("HUB01-IIC")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("verbonden met 1-   IIC");
+        .appendField("verbonden met ingang:   IIC"); //1
     this.appendValueInput("HUB02-IIC")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(" 2-   IIC");
+        .appendField("IIC (2)"); //2
     this.appendValueInput("HUB03-0/1")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("3- 0/ 1");
+        .appendField("0/ 1"); //3
     this.appendValueInput("HUB04-2/3")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("4- 2/ 3");
+        .appendField("2/ 3"); //4
     this.appendValueInput("HUB05-4/5")
         .setCheck(["MD_SENSOR","MD_SERVO"])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("5- 4/ 5");
+        .appendField("4/ 5"); //5
     this.appendValueInput("HUB06-6/7")
         .setCheck(["MD_SENSOR","MD_SERVO"])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("6- 6/ 7");
+        .appendField("6/ 7"); //6
     this.appendValueInput("HUB07-8/9")
         .setCheck(["MD_SENSOR","MD_SERVO"])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("7- 8/ 9");
+        .appendField("8/ 9"); //7
     this.appendValueInput("HUB08-10/11")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("8-10/11");
+        .appendField("10/11"); //8
     this.appendValueInput("HUB09-12/13")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("9-12/13");
+        .appendField("12/13"); //9
     this.appendValueInput("HUB10-A6/A7")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("10-A6/A7");
+        .appendField("A6/A7"); //10
     this.appendValueInput("HUB11-A2/A3")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("11-A2/A3");
+        .appendField("A2/A3"); //11
     this.appendValueInput("HUB12-A0/A1")
         .setCheck("MD_SENSOR")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("12-A0/A1");
+        .appendField("A0/A1"); //12
     this.setPreviousStatement(true, "MD_BLOCK");
     this.setNextStatement(true, "MD_BLOCK");
     this.setColour('#47EBCF');
@@ -229,15 +229,15 @@ Blockly.Blocks['mcookie_audio_setup'] = {
 
     // Iterate through top level blocks to find Amplifier module
     var blocks = Blockly.mainWorkspace.getAllBlocks();
-    var audioInstancePresent = false;
+    var amplifierInstancePresent = false;
     var BMInstancePresent = false;
     var CoreInstancePresent = false;
     for (var x = 0; x < blocks.length; x++) {
       var func = blocks[x].getMDBlockName;
       if (func) {
         var BlockInstanceName = func.call(blocks[x]);
-        if (BlockInstanceName == 'mcookie_audio_setup') {
-          audioInstancePresent = true;
+        if (BlockInstanceName == 'mcookie_audio_amplifier') {
+          amplifierInstancePresent = true;
         }
         else if (BlockInstanceName == 'mcookie_power') {
           BMInstancePresent = true;
@@ -250,10 +250,10 @@ Blockly.Blocks['mcookie_audio_setup'] = {
 
     if (!CoreInstancePresent) {
       this.setWarningText('Een Brein (CoreUSB) module moet toegevoegd worden aan je blokken', 'mcookie_audio_setup');
-    } else if (!audioInstancePresent) {
-      this.setWarningText('Een Audio module moet toegevoegd worden aan je blokken om met de luidspreker te werken', 'mcookie_audio_setup');
     } else if (!BMInstancePresent) {
       this.setWarningText('Een AAA Batterij module moet toegevoegd worden aan je blokken als je met geluid werkt', 'mcookie_audio_setup');
+    } else if (!amplifierInstancePresent) {
+      this.setWarningText('Een Luidspreker module (Amplifier) moet toegevoegd worden aan je blokken', 'mcookie_audio_setup');
     } else {
       this.setWarningText(null, 'mcookie_audio_setup');
     }
@@ -291,15 +291,15 @@ Blockly.Blocks['mcookie_audio_amplifier'] = {
 
     // Iterate through top level blocks to find Amplifier module
     var blocks = Blockly.mainWorkspace.getAllBlocks();
-    var amplifierInstancePresent = false;
+    var audioInstancePresent = false;
     var BMInstancePresent = false;
     var CoreInstancePresent = false;
     for (var x = 0; x < blocks.length; x++) {
       var func = blocks[x].getMDBlockName;
       if (func) {
         var BlockInstanceName = func.call(blocks[x]);
-        if (BlockInstanceName == 'mcookie_audio_amplifier') {
-          amplifierInstancePresent = true;
+        if (BlockInstanceName == 'mcookie_audio_setup') {
+          audioInstancePresent = true;
         }
         else if (BlockInstanceName == 'mcookie_power') {
           BMInstancePresent = true;
@@ -312,8 +312,8 @@ Blockly.Blocks['mcookie_audio_amplifier'] = {
 
     if (!CoreInstancePresent) {
       this.setWarningText('Een Brein (CoreUSB) module moet toegevoegd worden aan je blokken', 'mcookie_audio_setup');
-    } else if (!amplifierInstancePresent) {
-      this.setWarningText('Een Luidspreker module (Amplifier) moet toegevoegd worden aan je blokken', 'mcookie_audio_setup');
+    } else if (!audioInstancePresent) {
+      this.setWarningText('Een Audio module moet toegevoegd worden aan je blokken om met de luidspreker te werken', 'mcookie_audio_setup');
     } else if (!BMInstancePresent) {
       this.setWarningText('Een AAA Batterij module moet toegevoegd worden aan je blokken als je met geluid werkt', 'mcookie_audio_setup');
     } else {
