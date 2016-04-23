@@ -123,6 +123,7 @@
                     <li><a href="index.html?url=examples/MD_SweepServo.xml">01: Sweep Servo</a></li>
                     <li><a href="index.html?url=examples/MD_RotateServo.xml">02: Rotate Servo</a></li>
                     <li><a href="index.html?url=examples/MD_ButtonLed.xml">03: LED met Knop</a></li>
+                    <li><a href="index.html?url=examples/MD_ButtonSound.xml">04: Geluid met Knop</a></li>
                   </ul>
                 <button type="button" class="btn btn-default btn-md" onclick="uploadClick()">
                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Opladen">
@@ -418,9 +419,9 @@
     <block type="spi_transfer_return"></block>
   </category>
   <sep></sep>
-  <category id="catExp" name="Expansions">
-    <category id="catMD" name="MicroDuino">
-      <category id="catMDCore" name="MDCore">
+  <category id="catExp" name="Extra Sets">
+    <category id="catMD" name="Microduino">
+      <category id="catMDCore" name="Modules">
         <block type="md_modules"></block>
         <block type="mcookie_coreusb"></block>
         <block type="mcookie_hub"></block>
@@ -434,11 +435,11 @@
         </block>
         <block type="mcookie_audio_amplifier"></block>
       </category>
-      <category id="catMDAudio" name="MDAudio">
+      <category id="catMDAudio" name="Audio">
         <block type="mcookie_audio_play"></block>
         <block type="mcookie_audio_pause"></block>      
       </category>
-      <category id="catMDAct" name="MDBeweging">
+      <category id="catMDAct" name="Beweging">
         <block type="mcookie_servo_setup">
           <value name="SERVOTOPTYPE">
             <shadow type="mcookie_servo_type"></shadow>
@@ -465,14 +466,19 @@
         </block>
         <block type="mcookie_servo_read"></block>
       </category>
-      <category id="catMDControl" name="MDKnoppen">
+      <category id="catMDControl" name="Knoppen">
         <block type="mcookie_button_setup"></block>
         <block type="mcookie_button_digitalread"></block>
         <block type="mcookie_button_input"></block>
       </category>
-      <category id="catMDControl" name="MDLicht">
+      <category id="catMDLight" name="Licht">
         <block type="mcookie_led_setup"></block>
-        <block type="mcookie_neopixel_setup"></block>
+        <block type="mcookie_neopixel_setup">
+          <value name="NUMBER">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value></block>
         <block type="mcookie_led_digitalwrite">
           <value name="STATE">
             <shadow type="io_highlow"></shadow>
