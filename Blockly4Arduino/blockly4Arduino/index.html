@@ -22,6 +22,7 @@
   <script src="../blocks/arduino/declare.js"></script>
   <script src="../blocks/arduino/io.js"></script>
   <script src="../blocks/arduino/io_extra.js"></script>
+  <script src="../blocks/arduino/logic.js"></script>
   <script src="../blocks/arduino/map.js"></script>
   <script src="../blocks/arduino/procedures.js"></script>
   <script src="../blocks/arduino/serial.js"></script>
@@ -271,6 +272,7 @@
   </category>
   <category id="catLogic" name="Logica">
     <block type="controls_if"></block>
+    <block type="controls_effect"></block>
     <block type="logic_compare"></block>
     <block type="logic_operation"></block>
     <block type="logic_negate"></block>
@@ -436,7 +438,13 @@
         <block type="mcookie_audio_amplifier"></block>
       </category>
       <category id="catMDAudio" name="Audio">
-        <block type="mcookie_audio_play"></block>
+        <block type="mcookie_audio_play">
+          <value name="AUDIONAME">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+        </block>
         <block type="mcookie_audio_pause"></block>      
       </category>
       <category id="catMDAct" name="Beweging">
