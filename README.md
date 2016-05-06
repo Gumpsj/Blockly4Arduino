@@ -8,6 +8,8 @@ Graphically program your Arduino on Chrome OS, or Windows, Apple, Linux via the 
 
 To use off-line, download this code repo as a zip file, extract on your PC or on the Intranet, and run it by clickling in your file explorer on the file `Blockly4Arduino/blockly4Arduino/index_en.html`.
 
+Developed with support from [Ingegno.be](http://ingegno.be) and [VZW De Creatieve STEM](http://decreatievestem.be).
+
 ## Manual and examples
 
 Dutch: [Nederlandse handleiding](http://ingegno.be/01-blockly-4-arduino/)
