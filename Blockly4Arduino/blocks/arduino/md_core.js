@@ -114,7 +114,7 @@ Blockly.Blocks['mcookie_coreusb'] = {
     if (!this.workspace) { return; }  // Block has been deleted.
 
     // Iterate through top level blocks to find if there are other board modules
-    var blocks = Blockly.mainWorkspace.getAllBlocks();
+    var blocks = this.workspace.getAllBlocks();
     var otherBoardPresent = false;
     for (var x = 0; x < blocks.length; x++) {
       var func = blocks[x].getBoardName;
@@ -130,7 +130,7 @@ Blockly.Blocks['mcookie_coreusb'] = {
       // Set a warning to select a valid stepper config
       this.setWarningText(Blockly.Msg.ARD_BOARD_WARN.replace('%1', Blockly.Msg.ARD_MD_COOKIEBUTTON_COMPONENT));
     } else {
-      Blockly.Arduino.Boards.changeBoard(Blockly.mainWorkspace, this.getBoardName());
+      Blockly.Arduino.Boards.changeBoard(this.workspace, this.getBoardName());
       this.setWarningText(null);
     }
   }
@@ -151,43 +151,43 @@ Blockly.Blocks['mcookie_hub'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("IIC (2)"); //2
     this.appendValueInput("HUB03-0/1")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG", "HUB_DIGOUT"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("0/ 1"); //3
     this.appendValueInput("HUB04-2/3")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG", "HUB_DIGOUT"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("2/ 3"); //4
     this.appendValueInput("HUB05-4/5")
-        .setCheck(["MD_HUB_DIG","MD_SERVO", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG","HUB_PWM", "HUB_DIGOUT", "MD_HUB_PWM"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("4/ 5"); //5
     this.appendValueInput("HUB06-6/7")
-        .setCheck(["MD_HUB_DIG","MD_SERVO", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG","HUB_PWM", "HUB_DIGOUT", "MD_HUB_PWM"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("6/ 7"); //6
     this.appendValueInput("HUB07-8/9")
-        .setCheck(["MD_HUB_DIG","MD_SERVO", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG","HUB_PWM", "HUB_DIGOUT", "MD_HUB_PWM"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("8/ 9"); //7
     this.appendValueInput("HUB08-10/11")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG", "HUB_DIGOUT"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("10/11"); //8
     this.appendValueInput("HUB09-12/13")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_DIGOUT"])
+        .setCheck(["HUB_DIG", "HUB_DIGOUT"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("12/13"); //9
     this.appendValueInput("HUB10-A6/A7")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_ANA"])
+        .setCheck(["HUB_DIG", "MD_HUB_ANA"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("A6/A7"); //10
     this.appendValueInput("HUB11-A2/A3")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_ANA"])
+        .setCheck(["HUB_DIG", "MD_HUB_ANA"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("A2/A3"); //11
     this.appendValueInput("HUB12-A0/A1")
-        .setCheck(["MD_HUB_DIG", "MD_HUB_ANA"])
+        .setCheck(["HUB_DIG", "MD_HUB_ANA"])
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("A0/A1"); //12
     this.setPreviousStatement(true, "MD_BLOCK");

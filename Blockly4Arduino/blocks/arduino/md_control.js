@@ -31,7 +31,7 @@ Blockly.Blocks['mcookie_button_setup'] = {
         .appendField(
             new Blockly.FieldDropdown([[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]),
            'STATE');
-    this.setOutput(true, 'MD_HUB_DIG');
+    this.setOutput(true, 'HUB_DIG');
     this.setColour(Blockly.Blocks.md_control.HUE);
     this.setTooltip(Blockly.Msg.ARD_BUTTON_TIP);
     this.setHelpUrl('https://www.arduino.cc/en/Tutorial/Button');
@@ -92,7 +92,7 @@ Blockly.Blocks['mcookie_crashbutton_setup'] = {
         .appendField(Blockly.Msg.ARD_MD_CRASHBUTTON_COMPONENT)
         .appendField(new Blockly.Blocks.ComponentFieldVariable(
         Blockly.Msg.ARD_MD_CRASHBUTTON_DEFAULT_NAME, 'Button'), 'BUTTONNAME')
-    this.setOutput(true, 'MD_HUB_DIG');
+    this.setOutput(true, 'HUB_DIG');
     this.setColour(Blockly.Blocks.md_control.HUE);
     this.setTooltip(Blockly.Msg.ARD_MD_CRASHBUTTON_TIP);
     this.setHelpUrl('https://wiki.microduino.cc/index.php/Microduino-Crash');
@@ -202,7 +202,7 @@ Blockly.Blocks['mcookie_button_digitalread'] = {
     if (!this.workspace) { return; }  // Block has been deleted.
 
     var currentDropdown = this.getFieldValue('BUTTONNAME');
-    if (Blockly.Blocks.ComponentFieldVariable.CheckSetupPresent(currentDropdown, 'Button')) {
+    if (Blockly.Blocks.ComponentFieldVariable.CheckSetupPresent(this.workspace, currentDropdown, 'Button')) {
       this.setWarningText(null);
     } else {
       // Set a warning to select a valid stepper config
@@ -282,7 +282,7 @@ Blockly.Blocks['mcookie_button_input'] = {
     if (!this.workspace) { return; }  // Block has been deleted.
 
     var currentDropdown = this.getFieldValue('BUTTONNAME');
-    if (Blockly.Blocks.ComponentFieldVariable.CheckSetupPresent(currentDropdown, 'Button')) {
+    if (Blockly.Blocks.ComponentFieldVariable.CheckSetupPresent(this.workspace, currentDropdown, 'Button')) {
       this.setWarningText(null);
     } else {
       // Set a warning to select a valid config
