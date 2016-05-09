@@ -10,27 +10,31 @@
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.md_control');
+goog.provide('Blockly.Blocks.button');
 
 goog.require('Blockly.Blocks');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.md_control.HUE = 120;
+Blockly.Blocks.button.HUE = 250;
 
 
-/** Attach a microduino crashbutton block to the hub*/
-Blockly.Blocks['mcookie_crashbutton_setup'] = {
+/** Attach a button block to the hub*/
+Blockly.Blocks['button_setup'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("../media/MD/MDButton.png", 19, 19, "*"))
-        .appendField(Blockly.Msg.ARD_MD_CRASHBUTTON_COMPONENT)
+        .appendField(new Blockly.FieldImage("../media/arduino/Button.png", 19, 19, "*"))
+        .appendField(Blockly.Msg.ARD_BUTTON_COMPONENT)
         .appendField(new Blockly.Blocks.ComponentFieldVariable(
-        Blockly.Msg.ARD_MD_CRASHBUTTON_DEFAULT_NAME, 'Button'), 'BUTTONNAME')
+        Blockly.Msg.ARD_BUTTON_DEFAULT_NAME, 'Button'), 'BUTTONNAME')
+        .appendField(Blockly.Msg.ARD_BUTTON_IFPUSHED)
+        .appendField(
+            new Blockly.FieldDropdown([[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]),
+           'STATE');
     this.setOutput(true, 'HUB_DIG');
-    this.setColour(Blockly.Blocks.md_control.HUE);
-    this.setTooltip(Blockly.Msg.ARD_MD_CRASHBUTTON_TIP);
-    this.setHelpUrl('https://wiki.microduino.cc/index.php/Microduino-Crash');
+    this.setColour(Blockly.Blocks.button.HUE);
+    this.setTooltip(Blockly.Msg.ARD_BUTTON_TIP);
+    this.setHelpUrl('https://www.arduino.cc/en/Tutorial/Button');
   },
   /**
    * Set the connection pins that the component connects to
@@ -79,24 +83,38 @@ Blockly.Blocks['mcookie_crashbutton_setup'] = {
   }
 };
 
-Blockly.Blocks['mcookie_button_digitalread'] = {
-  /**
-   * Block for creating a 'read pin'.
-   * @this Blockly.Block
-   */
+
+Blockly.Blocks['button_input'] = {
   init: function() {
-    this.setHelpUrl('http://arduino.cc/en/Reference/DigitalRead');
-    this.setColour(Blockly.Blocks.md_control.HUE);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_BUTTON_READ)
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_IF)
         .appendField(new Blockly.Blocks.ComponentFieldVariable(
-        Blockly.Msg.ARD_MD_CRASHBUTTON_DEFAULT_NAME, 'Button'), 'BUTTONNAME');
-    this.setOutput(true, Blockly.Types.BOOLEAN.output);
-    this.setTooltip(Blockly.Msg.ARD_DIGITALREAD_TIP);
-  },
-  /** @return {!string} The type of return value for the block, an integer. */
-  getBlockType: function() {
-    return Blockly.Types.BOOLEAN;
+        Blockly.Msg.ARD_BUTTON_DEFAULT_NAME, 'Button'), 'BUTTONNAME')
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_CLICK);
+    this.appendStatementInput("CLICKINPUT")
+        .setCheck('ARD_BLOCK')
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_THEN);
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_LONGCLICK);
+    this.appendStatementInput("LONGPRESSINPUT")
+        .setCheck('ARD_BLOCK')
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_THEN);
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_PRESSED);
+    this.appendStatementInput("PRESSINPUT")
+        .setCheck('ARD_BLOCK')
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_THEN);
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "WAIT_INPUT")
+        .appendField(Blockly.Msg.ARD_BUTTON_INPUT_WAIT);
+    this.setPreviousStatement(true, 'ARD_BLOCK');
+    this.setNextStatement(true, 'ARD_BLOCK');
+    this.setColour(Blockly.Blocks.button.HUE);
+    this.setTooltip(Blockly.Msg.ARD_BUTTON_INPUT_TIP);
+    this.setHelpUrl('');
   },
   /**
    * Return all variables referenced by this block.
@@ -140,7 +158,7 @@ Blockly.Blocks['mcookie_button_digitalread'] = {
     if (Blockly.Blocks.ComponentFieldVariable.CheckSetupPresent(this.workspace, currentDropdown, 'Button')) {
       this.setWarningText(null);
     } else {
-      // Set a warning to select a valid stepper config
+      // Set a warning to select a valid config
       this.setWarningText(Blockly.Msg.ARD_COMPONENT_WARN1.replace('%1', Blockly.Msg.ARD_BUTTON_COMPONENT).replace('%1', Blockly.Msg.ARD_BUTTON_COMPONENT));
     }
   }

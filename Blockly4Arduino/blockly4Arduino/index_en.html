@@ -20,6 +20,7 @@
   <script src="../blocks/variables.js"></script>
   <script src="../blocks/procedures.js"></script>
   <script src="../blocks/component_variable.js"></script>
+  <script src="../blocks/arduino/button.js"></script>
   <script src="../blocks/arduino/components.js"></script>
   <script src="../blocks/arduino/declare.js"></script>
   <script src="../blocks/arduino/io.js"></script>
@@ -42,6 +43,7 @@
   <script src="../blocks/arduino/md_light.js"></script>
   <script src="../generators/arduino.js"></script>
   <script src="../generators/arduino/boards.js"></script>
+  <script src="../generators/arduino/button.js"></script>
   <script src="../generators/arduino/components.js"></script>
   <script src="../generators/arduino/declare.js"></script>
   <script src="../generators/arduino/io.js"></script>
@@ -126,10 +128,10 @@
                     <li><a href="index_en.html?url=examples/LedUpKidz_03_versnellen_en.xml">03: Faster and faster</a></li>
                     <li><a href="index_en.html?url=examples/LedUpKidz_04_combineren_en.xml">04: Combining Effects</a></li>
                     <li class="dropdown-header">Microduino</li>
-                    <li><a href="index.html?url=examples/MD_SweepServo.xml">01: Sweep Servo</a></li>
-                    <li><a href="index.html?url=examples/MD_RotateServo.xml">02: Rotate Servo</a></li>
-                    <li><a href="index.html?url=examples/MD_ButtonLed.xml">03: LED with Button</a></li>
-                    <li><a href="index.html?url=examples/MD_ButtonSound.xml">04: Sound with Button</a></li>
+                    <li><a href="index_en.html?url=examples/MD_SweepServo.xml">01: Sweep Servo</a></li>
+                    <li><a href="index_en.html?url=examples/MD_RotateServo.xml">02: Rotate Servo</a></li>
+                    <li><a href="index_en.html?url=examples/MD_ButtonLed.xml">03: LED with Button</a></li>
+                    <li><a href="index_en.html?url=examples/MD_ButtonSound.xml">04: Sound with Button</a></li>
                   </ul>
                 <button type="button" class="btn btn-default btn-md" onclick="uploadClick()">
                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Upload">
@@ -182,30 +184,30 @@
 
   <xml id="toolbox" style="display: none">
   <category id="catInputOutput" name="In/Output">
-    <block type="io_pin_dig"></block>
+    <!--block type="io_pin_dig"></block>
     <block type="io_pin_an"></block>
-    <block type="io_pin_pwm"></block>
+    <block type="io_pin_pwm"></block-->
     <block type="io_digitalwrite">
       <value name="STATE">
         <block type="io_highlow"></block>
       </value>
     </block>
-    <block type="io_digitalwrite_var">
+    <!--block type="io_digitalwrite_var">
       <value name="STATE">
         <block type="io_highlow"></block>
       </value>
-    </block>
+    </block-->
     <block type="io_digitalread"></block>
-    <block type="io_digitalread_var"></block>
-    <block type="io_builtin_led">
+    <!--block type="io_digitalread_var"></block-->
+    <!--block type="io_builtin_led">
       <value name="STATE">
         <block type="io_highlow"></block>
       </value>
-    </block>
+    </block-->
     <block type="io_analogwrite"></block>
-    <block type="io_analogwrite_var"></block>
+    <!--block type="io_analogwrite_var"></block-->
     <block type="io_analogread"></block>
-    <block type="io_analogread_var"></block>
+    <!--block type="io_analogread_var"></block-->
     <block type="io_highlow"></block>
     <block type="io_pulsein">
       <value name="PULSETYPE">
@@ -233,6 +235,16 @@
         <block type="math_number"></block>
       </value>
     </block>
+    <block type="analogsensor_config_hub"></block>
+    <block type="analogsensor_read"></block>
+    <block type="digitalinput_config_hub"></block>
+    <block type="digitalinput_read"></block>
+    <block type="button_setup"></block>
+    <block type="button_input"></block>
+    <block type="digitaloutput_config_hub"></block>
+    <block type="digitaloutput_write"></block>
+    <block type="pwmoutput_config_hub"></block>
+    <block type="pwmoutput_write"></block>
   </category>
   <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>
   <category id="catLoops" name="Repeat">
@@ -367,6 +379,11 @@
           <field name="NUM">1</field>
         </block>
     </block>
+    <block type="analogsensor_config_hub"></block>
+    <block type="digitalinput_config_hub"></block>
+    <block type="button_setup"></block>
+    <block type="digitaloutput_config_hub"></block>
+    <block type="pwmoutput_config_hub"></block>
     <block type="servo_config_hub"></block>
     <block type="stepper_config_hub">
       <value name="STEPPER_STEPS">
@@ -427,6 +444,7 @@
         </block>
       </value>
     </block>
+    <block type="button_input"></block>
   </category>
   <category id="catTone" name="Music">
     <block type="io_tone">
@@ -538,9 +556,8 @@
       </category>
       <category id="catMDControl" name="Buttons">
         <block type="mcookie_crashbutton_setup"></block>
-        <block type="mcookie_button_setup"></block>
         <block type="mcookie_button_digitalread"></block>
-        <block type="mcookie_button_input"></block>
+        <block type="button_input"></block>
       </category>
       <category id="catMDLight" name="Light">
         <block type="mcookie_neopixel_setup"></block>
