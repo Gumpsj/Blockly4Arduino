@@ -6,6 +6,8 @@ Graphically program your Arduino on Chrome OS, or Windows, Apple, Linux via the 
 
 2. [Nederlandse Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/blockly4Arduino/index.html)
 
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/03_sketch.png?raw=true)
+
 To use off-line, download this code repo as a zip file, extract on your PC or on the Intranet, and run it by clickling in your file explorer on the file `Blockly4Arduino/blockly4Arduino/index_en.html`.
 
 Developed with support from [Ingegno.be](http://ingegno.be) and [VZW De Creatieve STEM](http://decreatievestem.be).
@@ -33,11 +35,11 @@ We plan to make the demo site more easily translatable. At the moment, to obtain
 
 ## Screenshots
 
-![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex1.png?raw=true)
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/01_start.png?raw=true)
 
-![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex2.png?raw=true)
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/03_sketch.png?raw=true)
 
-![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/blockly_ex3.png?raw=true)
+![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/02a_uno.png?raw=true) ![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/02b_uno.png?raw=true) ![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/02c_uno.png?raw=true)
 
 # For developers
 
