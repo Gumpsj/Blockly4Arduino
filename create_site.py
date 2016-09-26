@@ -49,6 +49,8 @@ files = ['arduino_compressed.js',
          'COPYING',
          'package.json',
          'generators/arduino.js',
+         'index.html',
+         'index_en.html'
          ]
 app = ['blockly4Arduino/index.html']
 
