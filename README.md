@@ -2,9 +2,9 @@
 
 Graphically program your Arduino on Chrome OS, or Windows, Apple, Linux via the Chrome, Firefox ... browser. Program it if online with
 
-1. [English Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/blockly4Arduino/index_en.html)
+1. [English Blockly4Arduino](http://blokkencode.ingegno.be/index_en.html)
 
-2. [Nederlandse Blockly4Arduino](http://ingegno.be/Manuals/Blockly4Arduino/blockly4Arduino/index.html)
+2. [Nederlandse Blockly4Arduino](http://blokkencode.ingegno.be/index.html)
 
 ![](https://github.com/ingegno/Blockly4Arduino/blob/master/doc/03_sketch.png?raw=true)
 
@@ -30,7 +30,7 @@ Would you like to submit a translation of the website for your language? This ca
 2. Translate them. 
 3. Send them to us, or do a pull request against our branch of blockly.
 
-We plan to make the demo site more easily translatable. At the moment, to obtain a version for your language, you need to create a copy of this repo, and create a copy of Blockly4Arduino [index_en.html](https://github.com/ingegno/Blockly4Arduino/blob/master/Blockly4Arduino/demos/blocklyduino/index_en.html) and translate the few strings present. See the Dutch site for such a translation: [index.html](https://github.com/ingegno/Blockly4Arduino/blob/master/Blockly4Arduino/demos/blocklyduino/index.html).
+We plan to make the demo site more easily translatable. At the moment, to obtain a version for your language, you need to create a copy of this repo, and create a copy of Blockly4Arduino [index_en.html](https://github.com/ingegno/Blockly4Arduino/blob/master/Blockly4Arduino/index_en.html) and translate the few strings present. See the Dutch site for such a translation: [index.html](https://github.com/ingegno/Blockly4Arduino/blob/master/Blockly4Arduino/index.html).
 
 
 ## Screenshots
