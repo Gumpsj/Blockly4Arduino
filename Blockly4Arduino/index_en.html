@@ -3,89 +3,90 @@
 <head>
   <meta charset="utf-8">
   <title>Blockly4Arduino: Blockly for Arduino and Genuino</title>
-  
-  
+
   <!-- Materialize, Prettify, and Ardublockly CSS -->
-  <link rel="stylesheet" href="materialize/materialize.css" media="screen,projection"/>
-  <link rel="stylesheet" href="prettify/arduino.css"/>
-  <link rel="stylesheet" type="text/css" href="color.css" media="screen,projection"/>
+  <link rel="stylesheet" href="blockly4Arduino/materialize/materialize.css" media="screen,projection"/>
+  <link rel="stylesheet" href="blockly4Arduino/prettify/arduino.css"/>
+  <link rel="stylesheet" type="text/css" href="blockly4Arduino/color.css" media="screen,projection"/>
 
-  <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
-  <script src="../libs/jquery/jquery-1.12.2.min.js"></script>
-  <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
-  
-  <link rel="shortcut icon" href="favicon3.png"/>
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+  <script src="libs/jquery/jquery-1.12.2.min.js"></script>
+  <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+  <link rel="shortcut icon" href="blockly4Arduino/favicon3.png"/>
   <!-- Blockly4Arduino - These three files contain the compress version -->
-  <script src="../blockly_compressed.js"></script>
-  <script src="../blocks_compressed.js"></script>
-  <script src="../arduino_compressed.js"></script>
+  <script src="blockly_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="arduino_compressed.js"></script>
   <!-- To use the uncompressed version comment out the above and comment in the ones below -->
-  <!--script src="../blockly_uncompressed.js"></script>
-  <script src="../../closure-library/closure/goog/base.js"></script>
-  <script src="../blocks/logic.js"></script>
-  <script src="../blocks/loops.js"></script>
-  <script src="../blocks/math.js"></script>
-  <script src="../blocks/text.js"></script>
-  <script src="../blocks/lists.js"></script>
-  <script src="../blocks/colour.js"></script>
-  <script src="../blocks/variables.js"></script>
-  <script src="../blocks/procedures.js"></script>
-  <script src="../blocks/component_variable.js"></script>
-  <script src="../blocks/arduino/button.js"></script>
-  <script src="../blocks/arduino/components.js"></script>
-  <script src="../blocks/arduino/declare.js"></script>
-  <script src="../blocks/arduino/io.js"></script>
-  <script src="../blocks/arduino/io_extra.js"></script>
-  <script src="../blocks/arduino/light.js"></script>
-  <script src="../blocks/arduino/logic.js"></script>
-  <script src="../blocks/arduino/map.js"></script>
-  <script src="../blocks/arduino/procedures.js"></script>
-  <script src="../blocks/arduino/serial.js"></script>
-  <script src="../blocks/arduino/servo.js"></script>
-  <script src="../blocks/arduino/spi.js"></script>
-  <script src="../blocks/arduino/stepper.js"></script>
-  <script src="../blocks/arduino/time.js"></script>
-  <script src="../blocks/arduino/tone.js"></script>
-  <script src="../blocks/arduino/variables.js"></script>
-  <script src="../blocks/arduino/md_core.js"></script>
-  <script src="../blocks/arduino/md_control.js"></script>
-  <script src="../blocks/arduino/md_actuator.js"></script>
-  <script src="../blocks/arduino/md_audio.js"></script>
-  <script src="../blocks/arduino/md_light.js"></script>
-  <script src="../generators/arduino.js"></script>
-  <script src="../generators/arduino/boards.js"></script>
-  <script src="../generators/arduino/button.js"></script>
-  <script src="../generators/arduino/components.js"></script>
-  <script src="../generators/arduino/declare.js"></script>
-  <script src="../generators/arduino/io.js"></script>
-  <script src="../generators/arduino/io_extra.js"></script>
-  <script src="../generators/arduino/light.js"></script>
-  <script src="../generators/arduino/lists.js"></script>
-  <script src="../generators/arduino/logic.js"></script>
-  <script src="../generators/arduino/loops.js"></script>
-  <script src="../generators/arduino/map.js"></script>
-  <script src="../generators/arduino/math.js"></script>
-  <script src="../generators/arduino/procedures.js"></script>
-  <script src="../generators/arduino/serial.js"></script>
-  <script src="../generators/arduino/servo.js"></script>
-  <script src="../generators/arduino/spi.js"></script>
-  <script src="../generators/arduino/stepper.js"></script>
-  <script src="../generators/arduino/text.js"></script>
-  <script src="../generators/arduino/time.js"></script>
-  <script src="../generators/arduino/tone.js"></script>
-  <script src="../generators/arduino/variables.js"></script>
-  <script src="../generators/arduino/md_core.js"></script>
-  <script src="../generators/arduino/md_control.js"></script>
-  <script src="../generators/arduino/md_actuator.js"></script>
-  <script src="../generators/arduino/md_audio.js"></script>
-  <script src="../generators/arduino/md_light.js"></script-->
-
+  <!--script src="blockly_uncompressed.js"></script>
+  <script src="../closure-library/closure/goog/base.js"></script>
+  <script src="blocks/logic.js"></script>
+  <script src="blocks/loops.js"></script>
+  <script src="blocks/math.js"></script>
+  <script src="blocks/text.js"></script>
+  <script src="blocks/lists.js"></script>
+  <script src="blocks/colour.js"></script>
+  <script src="blocks/variables.js"></script>
+  <script src="blocks/procedures.js"></script>
+  <script src="blocks/component_variable.js"></script>
+  <script src="blocks/arduino/button.js"></script>
+  <script src="blocks/arduino/components.js"></script>
+  <script src="blocks/arduino/declare.js"></script>
+  <script src="blocks/arduino/io.js"></script>
+  <script src="blocks/arduino/io_extra.js"></script>
+  <script src="blocks/arduino/light.js"></script>
+  <script src="blocks/arduino/logic.js"></script>
+  <script src="blocks/arduino/map.js"></script>
+  <script src="blocks/arduino/procedures.js"></script>
+  <script src="blocks/arduino/serial.js"></script>
+  <script src="blocks/arduino/servo.js"></script>
+  <script src="blocks/arduino/spi.js"></script>
+  <script src="blocks/arduino/stepper.js"></script>
+  <script src="blocks/arduino/time.js"></script>
+  <script src="blocks/arduino/tone.js"></script>
+  <script src="blocks/arduino/variables.js"></script>
+  <script src="blocks/arduino/md_core.js"></script>
+  <script src="blocks/arduino/md_control.js"></script>
+  <script src="blocks/arduino/md_actuator.js"></script>
+  <script src="blocks/arduino/md_audio.js"></script>
+  <script src="blocks/arduino/md_light.js"></script>
+  <script src="blocks/arduino/ledup_blocks.js"></script>
+  <script src="generators/arduino.js"></script>
+  <script src="generators/arduino/boards.js"></script>
+  <script src="generators/arduino/button.js"></script>
+  <script src="generators/arduino/components.js"></script>
+  <script src="generators/arduino/declare.js"></script>
+  <script src="generators/arduino/io.js"></script>
+  <script src="generators/arduino/io_extra.js"></script>
+  <script src="generators/arduino/light.js"></script>
+  <script src="generators/arduino/lists.js"></script>
+  <script src="generators/arduino/logic.js"></script>
+  <script src="generators/arduino/loops.js"></script>
+  <script src="generators/arduino/map.js"></script>
+  <script src="generators/arduino/math.js"></script>
+  <script src="generators/arduino/procedures.js"></script>
+  <script src="generators/arduino/serial.js"></script>
+  <script src="generators/arduino/servo.js"></script>
+  <script src="generators/arduino/spi.js"></script>
+  <script src="generators/arduino/stepper.js"></script>
+  <script src="generators/arduino/text.js"></script>
+  <script src="generators/arduino/time.js"></script>
+  <script src="generators/arduino/tone.js"></script>
+  <script src="generators/arduino/variables.js"></script>
+  <script src="generators/arduino/md_core.js"></script>
+  <script src="generators/arduino/md_control.js"></script>
+  <script src="generators/arduino/md_actuator.js"></script>
+  <script src="generators/arduino/md_audio.js"></script>
+  <script src="generators/arduino/md_light.js"></script>
+  <script src="generators/arduino/ledup_blocks.js"></script-->
+  
   <!-- Language of the interface -->
-  <script type="text/javascript" src="../msg/js/nl.js"></script>
-  <script type="text/javascript" src="Blob.js"></script>
-  <script type="text/javascript" src="spin.js"></script>
-  <script type="text/javascript" src="FileSaver.min.js"></script>
-  <script type="text/javascript" src="blockly_helper.js"></script>
+  <script type="text/javascript" src="msg/js/en.js"></script>
+  <script type="text/javascript" src="blockly4Arduino/Blob.js"></script>
+  <script type="text/javascript" src="blockly4Arduino/spin.js"></script>
+  <script type="text/javascript" src="blockly4Arduino/FileSaver.min.js"></script>
+  <script type="text/javascript" src="blockly4Arduino/blockly_helper.js"></script>
 
 </head>
 <body>
@@ -94,7 +95,7 @@
       <td>
                     <div class="header" style="width:100%;background-color:#f9f9f9;">
                         <!--Start Logo-->
-                        <div class="logo"> <a href="http://ingegno.be"><img src="../media/logotop.png" alt="Ingegno" width="800px" /></a></div>
+                        <div class="logo"> <a href="http://ingegno.be"><img src="media/logotop.png" alt="Ingegno" width="800px" /></a></div>
                         <!--End Logo-->
                     </div>
       </td>
@@ -103,15 +104,9 @@
       <td>
         <table width="100%">
           <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon" onclick="Blockly4Arduino.tabClick('blocks')">Blokken</td>
+            <td id="tab_blocks" class="tabon" onclick="Blockly4Arduino.tabClick('blocks')">Blocks</td>
             <td class="tabmin">&nbsp;</td>
-            <!--td id="tab_javascript" class="taboff" onclick="tabClick(this.id)">JavaScript</td>
-            <td class="tabmin">&nbsp;</td-->
-            <!--td id="tab_dart" class="taboff" onclick="tabClick(this.id)">Dart</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
-            <td class="tabmin">&nbsp;</td-->
-            <!--td id="tab_arduino" class="taboff" onclick="Blockly4Arduino.tabClick('arduino')">Arduino</td>
+            <!--td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
             <td class="tabmin">&nbsp;</td-->
             <td id="tab_codebender" class="taboff" onclick="Blockly4Arduino.tabClick('codebender')">Upload</td>
             <td class="tabmin">&nbsp;</td>
@@ -119,52 +114,52 @@
             <td class="tabmax">
               <div class="dropdown">
               <div class="btn-group">
-                <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-toggle="dropdown" style="text-transform:None;">Voorbeelden
+                <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-toggle="dropdown" style="text-transform:None;">Examples
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-header">Basis Voorbeelden</li>
-                    <li><a href="index.html?url=examples/Blink.xml">01: Blink</a></li>
-                    <li><a href="index.html?url=examples/AnologReadSerial_nl.xml">02: Analoog lezen, seriele monitor</a></li>
+                    <li class="dropdown-header">Basic Examples</li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/Blink.xml">01: Blink</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/AnologReadSerial.xml">02: Analog Read, serial monitor</a></li>
                     <li class="dropdown-header">Digital</li>
-                    <li><a href="index.html?url=examples/BlinkNoDelay_nl.xml">01: Blink zonder wachten</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/BlinkNoDelay.xml">01: Blink No Delay</a></li>
                     <li class="dropdown-header">LedUpKidz</li>
-                    <li><a href="index.html?url=examples/LedUpKidz_01_aan_uit.xml">01: Flikkeren</a></li>
-                    <li><a href="index.html?url=examples/LedUpKidz_02_ronddraaien.xml">02: Ronddraaien</a></li>
-                    <li><a href="index.html?url=examples/LedUpKidz_03_versnellen.xml">03: Sneller en sneller</a></li>
-                    <li><a href="index.html?url=examples/LedUpKidz_04_combineren.xml">04: Meerdere effecten</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/LedUpKidz_01_aan_uit_en.xml">01: Flashing</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/LedUpKidz_02_ronddraaien_en.xml">02: Wheel Effect</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/LedUpKidz_03_versnellen_en.xml">03: Faster and faster</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/LedUpKidz_04_combineren_en.xml">04: Combining Effects</a></li>
                     <li class="dropdown-header">Microduino</li>
-                    <li><a href="index.html?url=examples/MD_SweepServo.xml">01: Sweep Servo</a></li>
-                    <li><a href="index.html?url=examples/MD_RotateServo.xml">02: Rotate Servo</a></li>
-                    <li><a href="index.html?url=examples/MD_ButtonLed.xml">03: LED met Knop</a></li>
-                    <li><a href="index.html?url=examples/MD_ButtonSound.xml">04: Geluid met Knop</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/MD_SweepServo.xml">01: Sweep Servo</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/MD_RotateServo.xml">02: Rotate Servo</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/MD_ButtonLed.xml">03: LED with Button</a></li>
+                    <li><a href="index_en.html?url=blockly4Arduino/examples/MD_ButtonSound.xml">04: Sound with Button</a></li>
                   </ul>
                 <button type="button" class="btn btn-default btn-md" onclick="uploadClick()">
-                  <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Opladen">
+                  <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Upload">
                     <span class="glyphicon glyphicon-play-circle"></span>
                   </a>
                 </button>
                 <button type="button" class="btn btn-warning btn-md" onclick="discard()">
-                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Herbeginnen">
+                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Discard">
                      <span class="glyphicon glyphicon-trash"></span>
                     </a>
                 </button>
                 <button type="button" class="btn btn-info btn-md" onclick="saveCode()">
-                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Code Opslaan">
+                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Save Code">
                     <span class="glyphicon glyphicon-floppy-save"></span>
                   </a>
                 </button>
                 <button type="button" class="btn btn-info btn-md" onclick="save()">
-                  <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="XML Opslaan">
+                  <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Save XML">
                     <span class="glyphicon glyphicon-save"></span>
                   </a>
                 </button>
                 <button type="button" class="btn btn-info btn-md" id="fakeload">
-                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="XML Laden">
+                   <a class="b4ard_tt" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Load XML">
                     <span class="glyphicon glyphicon-open"></span>
                   </a>
                 </button>
+
                 
-                  
                 <input type="file" id="load" style="display: none;"/>
                 <!--button class="launch" onclick="runJS()">Run Program</button-->
               </div>
@@ -190,15 +185,16 @@
                         <pre id="content_arduino" class="content content_height_transition content_arduino_large" style="width: 25%; height: 75%;"></pre>
                         </div>
                     </li>
-                    <!--li>
-                      <div class="collapsible-header" id="xml_collapsible_header">
-                        <span class="collapsible_logo">&#60; &#62;</span>Blocks XML
-                      </div>
-                      <div class="collapsible-body" style="position:relative" id="xml_collapsible_body">
-                        <a class="btn-floating btn-large waves-effect waves-light arduino_teal z-depth-1-half" id="button_load_xml"><i class="mdi-action-extension"></i></a>
-                        <textarea id="content_xml" class="content_sidebar content_height_transition content_xml_large" wrap="soft"></textarea>
-                      </div>
-                    </li-->
+
+          <!--li>
+            <div class="collapsible-header" id="xml_collapsible_header">
+              <span class="collapsible_logo">&#60; &#62;</span>Blocks XML
+            </div>
+            <div class="collapsible-body" style="position:relative" id="xml_collapsible_body">
+              <a class="btn-floating btn-large waves-effect waves-light arduino_teal z-depth-1-half" id="button_load_xml"><i class="mdi-action-extension"></i></a>
+              <textarea id="content_xml" class="content content_height_transition content_xml_large" wrap="soft"></textarea>
+            </div>
+          </li-->
                     </ul>
                 </div>
             </td>
@@ -207,7 +203,7 @@
       </td>
     </tr>
   </table>
-  <div id="bottom_link" style="position:absolute;bottom:8px;left:8px;font-size:8px;height:16px;z-index:1;width:250px;"><a href="https://github.com/ingegno/Blockly4Arduino/blob/master/README.md">Info</a> | <a href="index_en.html">English</a></div>
+  <div id="bottom_link" style="position:absolute;bottom:8px;left:8px;font-size:8px;height:16px;z-index:1;width:250px;"><a href="https://github.com/ingegno/Blockly4Arduino/blob/master/README.md">Info</a> | <a href="index.html">Nederlands</a></div>
   <div id="content_blocks" class="content"></div>
   <!--textarea id="content_arduino" class="content" readonly wrap="off"></textarea-->
   <textarea id="content_xml" class="content" wrap="off"></textarea>
@@ -278,8 +274,8 @@
     <block type="pwmoutput_config_hub"></block>
     <block type="pwmoutput_write"></block>
   </category>
-  <category id="catFunctions" name="Functies" custom="PROCEDURE"></category>
-  <category id="catLoops" name="Herhalen">
+  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>
+  <category id="catLoops" name="Repeat">
     <block type="controls_repeat_ext">
       <value name="TIMES">
         <block type="math_number">
@@ -307,7 +303,7 @@
     </block>
     <block type="controls_flow_statements"></block>
   </category>
-  <category id="catLogic" name="Logica">
+  <category id="catLogic" name="Logic">
     <block type="controls_if"></block>
     <block type="logic_compare"></block>
     <block type="logic_operation"></block>
@@ -316,7 +312,7 @@
     <block type="logic_null"></block>
     <block type="logic_ternary"></block>
   </category>
-  <category id="catMath" name="Wiskunde">
+  <category id="catMath" name="Math">
     <block type="math_number"></block>
     <block type="math_arithmetic"></block>
     <block type="math_single"></block>
@@ -359,7 +355,7 @@
     <block type="math_random_float"></block>
     <block type="base_map"></block>
   </category>
-  <category id="catText" name="Tekst">
+  <category id="catText" name="Text">
     <block type="text"></block>
     <block type="text_join"></block>
     <block type="text_append">
@@ -372,7 +368,7 @@
 //    <!--block type="text_trim"></block Need to update block -->
 //    <!--block type="text_print"></block Part of the serial comms -->
   </category>
-  <category id="catVariables" name="Variabelen">
+  <category id="catVariables" name="Variables">
     <block type="variables_get"></block>
     <block type="variables_set"></block>
     <block type="variables_set">
@@ -382,7 +378,7 @@
     </block>
     <block type="variables_set_type"></block>
   </category>
-  <category id="catTime" name="Tijd">
+  <category id="catTime" name="Time">
     <block type="time_delay">
       <value name="DELAY_TIME_MILI">
         <block type="math_number">
@@ -402,7 +398,7 @@
     <block type="infinite_loop"></block>
   </category>
   <sep></sep>
-  <category id="catComponent" name="Componenten">
+  <category id="catComponent" name="Components">
     <block type="core_hub_component"></block>
     <block type="led_config_hub"></block>
     <block type="neopixel_config_hub">
@@ -429,6 +425,24 @@
         </block>
       </value>
     </block>
+  </category>
+  <category id="catTone" name="Light&Sound">
+    <block type="led_config_hub"></block>
+    <block type="neopixel_config_hub">
+      <value name="NUMBER">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+    </block>
+    <block type="io_tone">
+      <field name="TONEPIN">0</field>
+      <value name="FREQUENCY">
+        <shadow type="math_number">
+          <field name="NUM">220</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="io_notone"></block>
     <block type="led_digitalwrite_onoff"></block>
     <block type="led_digitalwrite">
       <value name="STATE">
@@ -476,20 +490,8 @@
         </block>
       </value>
     </block>
-    <block type="button_input"></block>
   </category>
-  <category id="catTone" name="Muziek">
-    <block type="io_tone">
-      <field name="TONEPIN">0</field>
-      <value name="FREQUENCY">
-        <shadow type="math_number">
-          <field name="NUM">220</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="io_notone"></block>
-  </category>
-  <category id="catMotors" name="Motoren">
+  <category id="catMotors" name="Motors">
     <block type="servo_config_hub"></block>
     <block type="stepper_config_hub">
       <value name="STEPPER_STEPS">
@@ -556,16 +558,10 @@
         <block type="mcookie_audio_amplifier"></block>
       </category>
       <category id="catMDAudio" name="Audio">
-        <block type="mcookie_audio_play">
-          <value name="AUDIONAME">
-            <block type="math_number">
-              <field name="NUM">1</field>
-            </block>
-          </value>
-        </block>
+        <block type="mcookie_audio_play"></block>
         <block type="mcookie_audio_pause"></block>      
       </category>
-      <category id="catMDAct" name="Beweging">
+      <category id="catMDAct" name="MDMovement">
         <block type="mcookie_servo_setup">
           <value name="SERVOTOPTYPE">
             <shadow type="mcookie_servo_type"></shadow>
@@ -592,18 +588,13 @@
         </block>
         <block type="servohub_read"></block>
       </category>
-      <category id="catMDControl" name="Knoppen">
+      <category id="catMDControl" name="Buttons">
         <block type="mcookie_crashbutton_setup"></block>
         <block type="mcookie_button_digitalread"></block>
         <block type="button_input"></block>
       </category>
-      <category id="catMDLight" name="Licht">
-        <block type="mcookie_neopixel_setup">
-          <value name="NUMBER">
-            <block type="math_number">
-              <field name="NUM">1</field>
-            </block>
-          </value></block>
+      <category id="catMDLight" name="Light">
+        <block type="mcookie_neopixel_setup"></block>
         <block type="neopixel_colourpick_write">
           <value name="LEDPIXEL">
             <block type="math_number">
@@ -647,16 +638,106 @@
         </block>
       </category>
     </category>
+    <category id="catLedUp" name="LedUpKidz">
+      <category id="catLedUpBlocks" name="LedUp Blocks">
+        <block type="ledup_hub">
+          <value name="LED-0">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED0</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+          <value name="LED-1">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED1</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+          <value name="LED-2">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED2</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+          <value name="LED-3">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED3</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+          <value name="LED-4">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED4</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+          <value name="LED-5">
+            <block type="led_config_hub">
+              <field name="LEDNAME">LED5</field>
+              <field name="POLARITY">neg</field>  
+            </block>
+          </value>
+        </block>
+        <block type="arduino_functions"></block>
+        <block type="procedures_defnoreturn">
+          <field name="NAME">EffectOn</field>
+          <statement name="STACK">
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED0</field>
+              <field name="STATE">on</field>
+            <next>
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED1</field>
+              <field name="STATE">on</field>
+            <next>
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED2</field>
+              <field name="STATE">on</field>
+            <next>
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED3</field>
+              <field name="STATE">on</field>
+            <next>
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED4</field>
+              <field name="STATE">on</field>
+            <next>
+            <block type="led_digitalwrite_onoff">
+              <field name="LEDNAME">LED5</field>
+              <field name="STATE">on</field>
+            </block>
+          </statement>
+        </block>
+        <block type="time_delay">
+          <value name="DELAY_TIME_MILI">
+            <block type="math_number">
+              <field name="NUM">1000</field>
+            </block>
+          </value>
+        </block>
+        <block type="time_delaymicros">
+          <value name="DELAY_TIME_MICRO">
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
+          </value>
+        </block>
+          
+    </category>
+    </category>
     <category id="catAllBot" name="AllBot">
+      <category id="catAllBotBlocks" name="AllBot Blocks">
+        <block type="allbot_hub"></block>
+    </category>
     </category>
   </category>
 </xml>;
 
   <!-- JS Diff -->
-  <script src="js_libs/diff.js"></script>
+  <script src="blockly4Arduino/js_libs/diff.js"></script>
   <!-- Prettify JS -->
-  <script src="prettify/prettify.js"></script>
-  <script type="text/javascript" src="blockly4arduino_blockly.js"></script>
+  <script src="blockly4Arduino/prettify/prettify.js"></script>
+  <script type="text/javascript" src="blockly4Arduino/blockly4arduino_blockly.js"></script>
   <script>
     window.addEventListener('load', function load(event) {
       window.removeEventListener('load', load, false);
@@ -666,4 +747,4 @@
 </body>
 </html>
 
-<script type="text/javascript" src="blockly_helper_after.js"></script>
+<script type="text/javascript" src="blockly4Arduino/blockly_helper_after.js"></script>
