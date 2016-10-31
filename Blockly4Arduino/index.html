@@ -16,11 +16,11 @@
   
   <link rel="shortcut icon" href="blockly4Arduino/favicon3.png"/>
   <!-- Blockly4Arduino - These three files contain the compress version -->
-  <script src="blockly_compressed.js"></script>
+  <!--script src="blockly_compressed.js"></script>
   <script src="blocks_compressed.js"></script>
-  <script src="arduino_compressed.js"></script>
+  <script src="arduino_compressed.js"></script-->
   <!-- To use the uncompressed version comment out the above and comment in the ones below -->
-  <!--script src="blockly_uncompressed.js"></script>
+  <script src="blockly_uncompressed.js"></script>
   <script src="../closure-library/closure/goog/base.js"></script>
   <script src="blocks/logic.js"></script>
   <script src="blocks/loops.js"></script>
@@ -31,13 +31,14 @@
   <script src="blocks/variables.js"></script>
   <script src="blocks/procedures.js"></script>
   <script src="blocks/component_variable.js"></script>
+  <script src="blocks/arduino/allbot.js"></script>
   <script src="blocks/arduino/button.js"></script>
   <script src="blocks/arduino/components.js"></script>
   <script src="blocks/arduino/declare.js"></script>
   <script src="blocks/arduino/io.js"></script>
   <script src="blocks/arduino/io_extra.js"></script>
   <script src="blocks/arduino/light.js"></script>
-  <script src="blocks/arduino/logic.js"></script>
+  <script src="blocks/arduino/logo.js"></script>
   <script src="blocks/arduino/map.js"></script>
   <script src="blocks/arduino/procedures.js"></script>
   <script src="blocks/arduino/serial.js"></script>
@@ -54,6 +55,7 @@
   <script src="blocks/arduino/md_light.js"></script>
   <script src="blocks/arduino/ledup_blocks.js"></script>
   <script src="generators/arduino.js"></script>
+  <script src="generators/arduino/allbot.js"></script>
   <script src="generators/arduino/boards.js"></script>
   <script src="generators/arduino/button.js"></script>
   <script src="generators/arduino/components.js"></script>
@@ -80,7 +82,7 @@
   <script src="generators/arduino/md_actuator.js"></script>
   <script src="generators/arduino/md_audio.js"></script>
   <script src="generators/arduino/md_light.js"></script>
-  <script src="generators/arduino/ledup_blocks.js"></script-->
+  <script src="generators/arduino/ledup_blocks.js"></script>
 
   <!-- Language of the interface -->
   <script type="text/javascript" src="msg/js/nl.js"></script>
@@ -215,7 +217,21 @@
   <!--textarea id="content_arduino" class="content" readonly wrap="off"></textarea-->
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
-  <div id="content_codebender" class="content" style="visibility:hidden"><iframe id="codebender_iframe" style="margin: 10px 0 10px; width:100%; height:100%" allowTransparency="true" src="https://codebender.cc/sketch:282881" frameborder="0"></iframe></div>
+  <div id="content_codebender" class="content" style="visibility:hidden"><!--iframe id="codebender_iframe" style="margin: 10px 0 10px; width:100%; height:100%" allowTransparency="true" src="https://codebender.cc/sketch:282881" frameborder="0"></iframe-->Gebruik een van de volgende tools om je Arduino te programmeren:
+    <ul>
+      <li style="list-style-type: circle;margin-left: 20px;">Chrome OS of Chrome browser: <a href="https://chrome.google.com/webstore/detail/chromeduino/dmkincdpchiadkhhocmbpjljebfifgbl">ChromeDuino</a>. Eenmaal deze app geinstalleerd is in Chrome, kun je de app starten via de <b>Launch</b> knop of via het Apps startscherm.
+        <!--div id="" class="app-contents">
+        <div class="app-img-container launch-click-target" aria-hidden="true" title="ChromeDuino" style="height: 64px; width: 64px;">
+        <img class="" alt="" src="chrome://extension-icon/dmkincdpchiadkhhocmbpjljebfifgbl/128/1">
+        </div>
+        <span class="title launch-click-target" title="ChromeDuino">ChromeDuino</span>
+        </div--> 
+      </li>
+      <li style="list-style-type: circle;margin-left: 20px;">Chrome, Firefox: Het betalende <a href="https://edu.codebender.cc/">edu.codebender.cc</a>. In deze app kun je bibliotheken en andere chips dan de arduino gebruiken.</li>
+      <li style="list-style-type: circle;margin-left: 20px;">Windows, Mac, Linux: <a href="https://create.arduino.cc/">online Arduino Create</a></li>
+      <li style="list-style-type: circle;margin-left: 20px;">Windows, Mac, Linux: <a href="https://www.arduino.cc/en/Main/Software">offline Arduino IDE software</a></li>
+    </ul>
+  </div>
 
   <xml id="toolbox" style="display: none">
   <category id="catInputOutput" name="In/Output">
@@ -783,8 +799,117 @@
     </category>
     <category id="catAllBot" name="AllBot">
       <category id="catAllBotBlocks" name="AllBot Blokken">
-        <block type="allbot_hub"></block>
-    </category>
+        <block type="allbotservo_config_hub"></block>
+        <block type="allbot_walkforward">
+          <value name="STEPS">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">200</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_walkbackward">
+          <value name="STEPS">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">200</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_walkleft">
+          <value name="STEPS">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">200</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_walkright">
+          <value name="STEPS">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">200</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_lookleft">
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">150</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_lookright">
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">150</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_animate">
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">150</field>
+          </block>
+          </value>
+        </block>
+        <block type="servoallbot_animate">
+          <value name="SERVO_ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+          </value>
+        </block>
+      </category>
+      <category id="catAllBotExtra" name="AllBot Extra">
+        <block type="allbot_scared">
+          <value name="SHAKES">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="BEEPS">
+          <block type="math_number">
+            <field name="NUM">3</field>
+          </block>
+          </value>
+        </block>
+        <block type="allbot_chirp">
+          <value name="BEEPS">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+          </value>
+          <value name="SPEED">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+          </value>
+        </block>
+        <block type="servoallbot_write">
+          <value name="SERVO_ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+          </value>
+        </block>
+      </category>
     </category>
   </category>
 </xml>;

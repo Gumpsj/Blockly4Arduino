@@ -27,7 +27,7 @@ function backup_blocks() {
 function restore_blocks() {
   if ('localStorage' in window && window.localStorage.arduino) {
     var xml = Blockly.Xml.textToDom(window.localStorage.arduino);
-    Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+    Blockly.Xml.domToWorkspace(xml, Blockly.mainWorkspace);
   }
 }
 
@@ -87,7 +87,7 @@ function load(event) {
       if (count && confirm(Blockly.Msg.REPLACE_EXISTING_BLOCKS)) {
         Blockly.mainWorkspace.clear();
       }
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+      Blockly.Xml.domToWorkspace(xml, Blockly.mainWorkspace);
     }
     // Reset value of input after loading because Chrome will not fire
     // a 'change' event if the same file is loaded again.
@@ -103,7 +103,7 @@ function discard() {
   var count = Blockly.mainWorkspace.getAllBlocks().length;
   if (count < 2 || window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
     Blockly.mainWorkspace.clear();
-    renderContent();
+    Blockly4Arduino.renderContent();
   }
 }
 
@@ -176,7 +176,7 @@ function onSuccess() {
       if (count && confirm(Blockly.Msg.REPLACE_EXISTING_BLOCKS)) {
         Blockly.mainWorkspace.clear();
       }
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+      Blockly.Xml.domToWorkspace(xml, Blockly.mainWorkspace);
     } else {
       alert("Server error");
     }
