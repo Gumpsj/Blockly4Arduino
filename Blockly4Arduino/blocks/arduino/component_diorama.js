@@ -4,53 +4,61 @@
  */
 
 /**
- * @fileoverview Block for standard Arduino components.
+ * @fileoverview Block for the Ingegno Diorama Hub.
+ *     The Diorama is an Arduino Mega connected to 
+ *     1. A TM1638 board
+ *     2. SD Card shield
+ *     3. Stepper Motor
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.components');
+goog.provide('Blockly.Blocks.components.diorama');
 
 goog.require('Blockly.Blocks');
+goog.require('Blockly.Blocks.components');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.components.HUE = '#70D65C'; //110;
+Blockly.Blocks.components.diorama.HUE = '#0066FF';
 
 
-Blockly.Blocks['core_hub_component'] = {
+Blockly.Blocks['diorama_hub_component'] = {
   /**
    * Block for the core hub component to which you can connect sensors/light/...
    * @this Blockly.Block
    */
   init: function() {
     this.arguments_ = [];
-    this.setHelpUrl(''); //Blockly.Msg.ARD_CONTROLS_EFFECT_HELPURL);
+    this.setHelpUrl(''); 
     this.setColour(Blockly.Blocks.components.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_BOARD)
+        .appendField('Diorama');
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_DIO_STOPBTN)
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_STEPPER_SETUP)
         .appendField(
-            new Blockly.FieldDropdown(
-                [['Arduino Uno', 'uno'],
-                 ['Arduino Duemilanove', 'duemilanove_168p'],
-                 ['Arduino Mega', 'mega'],
-                 ['Arduino Leonardo/Yun', 'leonardo'],
-                 ['AllBot VR204 Uno', 'allbotVR204uno'],
-                 ['AllBot VR204 Mega', 'allbotVR204mega'],
-                 ['AllBot VR408 Uno', 'allbotVR408uno'],
-                 ['AllBot VR408 Mega', 'allbotVR408mega'],
-                 ['AllBot VR412 Uno', 'allbotVR412uno'],
-                 ['AllBot VR412 Mega', 'allbotVR412mega'],
-                 ['AllBot VR612 Uno', 'allbotVR612uno'],
-                 ['AllBot VR612 Mega', 'allbotVR612mega'],
-                 ['AllBot VR618 Mega', 'allbotVR618mega']
-                ]), 'BOARD');
+            new Blockly.FieldInstance('Stepper',
+                                      Blockly.Msg.ARD_STEPPER_DEFAULT_NAME,
+                                      true, true, false),
+            'STEPPER_NAME')
+        .appendField(Blockly.Msg.ARD_STEPPER_MOTOR);
+    this.appendValueInput('STEPPER_STEPS')
+        .setCheck(Blockly.Types.NUMBER.checkList)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_STEPPER_REVOLVS);
+    this.appendValueInput('STEPPER_SPEED')
+        .setCheck(Blockly.Types.NUMBER.checkList)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_STEPPER_SPEED);
     this.setMutator(new Blockly.Mutator(['core_hub_digpin',
                                          'core_hub_anapin',
                                          'core_hub_pwmpin',
                                          'core_hub_digdigpin']));
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
-    this.setTooltip(Blockly.Msg.ARD_COMPONENT_BOARD_TIP);
+    this.setTooltip(Blockly.Msg.ARD_DIORAMA_BOARD_TIP);
     this.digCount_ = 0;
     this.anaCount_ = 0;
     this.pwmCount_ = 0;
@@ -62,7 +70,7 @@ Blockly.Blocks['core_hub_component'] = {
    * @this Blockly.Block
    */
   getBoardName: function() {
-    return this.getFieldValue('BOARD');
+    return 'diorama';
   },
   /**
    * Called whenever anything on the workspace changes.
@@ -90,7 +98,7 @@ Blockly.Blocks['core_hub_component'] = {
     }
     
     if (otherBoardPresent) {
-      // Set a warning to select a valid stepper config
+      // Set a warning
       this.setWarningText(Blockly.Msg.ARD_BOARD_WARN.replace('%1', Blockly.Msg.ARD_COMPONENT_BOARD), 'board');
     } else {
       Blockly.Arduino.Boards.changeBoard(this.workspace, this.getBoardName());
@@ -367,81 +375,35 @@ Blockly.Blocks['core_hub_component'] = {
   }
 };
 
-Blockly.Blocks['core_hub_hub'] = {
-  /**
-   * Mutator block for if container.
-   * @this Blockly.Block
-   */
+
+Blockly.Blocks['diorama_button_declaration'] = {
   init: function() {
     this.setColour(Blockly.Blocks.components.HUE);
     this.appendDummyInput()
-        .appendField('Arduino Hub');
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_COMPONENT_BOARD_HUB_TIP);
-    this.contextMenu = false;
+	    .appendField('Diorama ' + Blockly.Msg.ARD_BUTTON_COMPONENT)
+        .appendField(
+            new Blockly.FieldDropdown(
+                [['1', '1'],
+                 ['2', '2'],
+                 ['3', '3'],
+                 ['4', '4'],
+                 ['5', '5'],
+                 ['6', '6'],
+                 ['7', '7'],
+                ]), 'BUTTON');
+	this.appendStatementInput('BUTTONCODE')
+        .setCheck('ARD_BLOCK');
+	this.setTooltip(Blockly.Msg.ARD_DIORAMA_BTN_TIP);
+  },
+  /**
+   * Gets the variable type required.
+   * @param {!string} varName Name of the variable selected in this block to
+   *     check.
+   * @return {string} String to indicate the variable type.
+   */
+  getDioBtn: function() {
+    return this.getFieldValue('BUTTON');
   }
 };
 
-Blockly.Blocks['core_hub_digpin'] = {
-  /**
-   * Mutator block for single digital pin connection.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.setColour(Blockly.Blocks.components.HUE);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_PIN_DIG)
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_PIN_DIG_TIP);
-    this.contextMenu = false;
-  }
-};
 
-Blockly.Blocks['core_hub_anapin'] = {
-  /**
-   * Mutator block for single analog pin connection.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.setColour(Blockly.Blocks.components.HUE);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_PIN_AN);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_PIN_AN_TIP);
-    this.contextMenu = false;
-  }
-};
-
-Blockly.Blocks['core_hub_pwmpin'] = {
-  /**
-   * Mutator block for else condition.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.setColour(Blockly.Blocks.components.HUE);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_PIN_PWM);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_PIN_PWM_TIP);
-    this.contextMenu = false;
-  }
-};
-
-Blockly.Blocks['core_hub_digdigpin'] = {
-  /**
-   * Mutator block for single digital pin connection.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.setColour(Blockly.Blocks.components.HUE);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_PIN_DIGDIG)
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_PIN_DIGDIG_TIP);
-    this.contextMenu = false;
-  }
-};
