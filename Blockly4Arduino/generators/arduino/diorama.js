@@ -31,7 +31,7 @@ void DOIvolLouder() {
 }
 `
   Blockly.Arduino.addFunction('DIOvolLouder', code);
-  return 'DOIvolLouder();\nDIObtn_stoprunning();\n';
+  return 'DOIvolLouder();\nDIObtn_stoprunning(false);\n';
 };
 
 /**
@@ -52,7 +52,7 @@ void DOIvolQuieter() {
 }
 `
   Blockly.Arduino.addFunction('DOIvolQuieter', code);
-  return 'DOIvolQuieter();\nDIObtn_stoprunning();\n';
+  return 'DOIvolQuieter();\nDIObtn_stoprunning(false);\n';
 };
 
 /**
@@ -99,7 +99,7 @@ Blockly.Arduino['dio_stoptrack'] = function(block) {
  * @return {array} Completed code with order of operation.
  */
 Blockly.Arduino['dio_trackplaying'] = function(block) {
-  return 'DIOMP3player.isPlaying()';
+  return ['DIOMP3player.isPlaying()', Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /**
@@ -108,7 +108,7 @@ Blockly.Arduino['dio_trackplaying'] = function(block) {
  * @return {array} Completed code with order of operation.
  */
 Blockly.Arduino['dio_resetbtnpress'] = function(block) {
-  return 'DIObtn_stoprunning();\n';
+  return 'DIObtn_stoprunning(true);\n';
 };
 
 /**
@@ -131,6 +131,16 @@ DIOBtn%1Running = false;
 Blockly.Arduino['dio_displaytext'] = function(block) {
   var text = Blockly.Arduino.valueToCode(
       block, 'TEXT', Blockly.Arduino.ORDER_ATOMIC) || 'no text';
+  //limit text to 8 characters
+  if (text.slice(0,1) == '"') {
+    // not a variable, pad string to 8 long
+    text = text.slice(1, text.length-1);
+    if (text.length > 8) {text = text.slice(0,8);}
+    //pad to 8 long
+    while (text.length < 8)
+          text = text + ' ';
+    text = '"' + text + '"'
+  }
   return 'DIOmodule.setDisplayToString(' + text + ');\n';
 };
 
