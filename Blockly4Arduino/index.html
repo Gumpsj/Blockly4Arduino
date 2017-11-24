@@ -393,6 +393,11 @@
     </block>
     <block type="text_length"></block>
     <block type="text_isEmpty"></block>
+    <block type="ard_comment">
+      <value name="TEXT">
+        <block type="text"></block>
+      </value>
+    </block>
 //    <!--block type="text_trim"></block Need to update block -->
 //    <!--block type="text_print"></block Part of the serial comms -->
   </category>
@@ -589,6 +594,13 @@
       <value name="STEPPER_SPEED">
         <block type="math_number">
           <field name="NUM">10</field>
+        </block>
+      </value>
+    </block>
+    <block type="stepper_rotate_number">
+      <value name="ANGLE">
+        <block type="math_number">
+          <field name="NUM">45</field>
         </block>
       </value>
     </block>
