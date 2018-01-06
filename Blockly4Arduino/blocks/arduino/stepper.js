@@ -428,6 +428,7 @@ Blockly.Blocks['stepper_restart'] = {
                                       Blockly.Msg.ARD_STEPPER_DEFAULT_NAME,
                                       false, true, false),
             'STEPPER_NAME')
+        .appendField(Blockly.Msg.ARD_STEPPER_RESTART_AFTER)
     this.setPreviousStatement(true, 'ARD_BLOCK');
     this.setNextStatement(true, 'ARD_BLOCK');
     this.setTooltip(Blockly.Msg.ARD_STEPPER_RESTART_TIP);
