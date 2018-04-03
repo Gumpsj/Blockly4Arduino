@@ -35,6 +35,7 @@ Blockly.Blocks['core_hub_component'] = {
                  ['Arduino Mega', 'mega'],
                  ['Arduino Leonardo/Yun', 'leonardo'],
                  ['Arduino Nano 328', 'nano_328'],
+                 ['NodeMCU', 'nodemcu'],
                  ['AllBot VR204 Uno', 'allbotVR204uno'],
                  ['AllBot VR204 Mega', 'allbotVR204mega'],
                  ['AllBot VR408 Uno', 'allbotVR408uno'],
@@ -45,6 +46,7 @@ Blockly.Blocks['core_hub_component'] = {
                  ['AllBot VR612 Mega', 'allbotVR612mega'],
                  ['AllBot VR618 Mega', 'allbotVR618mega']
                 ]), 'BOARD');
+    this.setNextStatement(true, 'ARD_COMP_BLOCK');
     this.setMutator(new Blockly.Mutator(['core_hub_digpin',
                                          'core_hub_anapin',
                                          'core_hub_pwmpin',
