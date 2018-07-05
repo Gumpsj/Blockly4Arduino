@@ -33,6 +33,31 @@ goog.require('Blockly.Msg');
  */
 
 /**
+ * Blockly4Arduino Website Messages
+ */
+
+/// Message when Chrome is not used
+Blockly.Msg.B4A_NO_CHROME = 'You need to use Google Chrome to use this Upload functionality';
+/// Message when Chrome extension is not available
+Blockly.Msg.B4A_NO_EXTENSION = 'Chrome Extension is not installed';
+/// Verify the code failed
+Blockly.Msg.B4A_VERIFY_FAIL = 'Verify failed. Chrome Extension is not installed';
+/// Uploading the code failed
+Blockly.Msg.B4A_UPLOAD_FAIL = 'Upload failed. Chrome Extension is not installed';
+/// Message on error on upload or verify
+Blockly.Msg.B4A_ERROR = 'ERROR!';
+/// Message on success on upload or verify
+Blockly.Msg.B4A_SUCCESS = 'SUCCESS!';
+/// Indication flashing in progress to Arduino
+Blockly.Msg.B4A_FLASHING = 'Flashing to device';
+/// Indication of error with compiler returning empty file
+Blockly.Msg.B4A_COMPILE_EMPTY = 'Compiler returned empty file - Device not flashed';
+/// Dialog box message requesting IP address
+Blockly.Msg.B4A_SET_IP_COMPILER = 'New IP Address Compiler';
+/// Notify user of return message of the chrome extension
+Blockly.Msg.B4A_MSG_EXTENSION = 'Message from extension: ';
+
+/**
  * Ardublockly Types
  */
 /// Arduino Types - Character C type char
@@ -567,3 +592,19 @@ Blockly.Msg.ARD_TFT_CIRC_YPOS = 'Y Position Center';
 Blockly.Msg.ARD_TFT_CIRC_RADIUS = 'Radius';
 Blockly.Msg.ARD_TFT_CIRC_HEIGHT = 'Height';
 Blockly.Msg.ARD_TFT_CIRC_TIP = 'Draw a circle on the screen with the given coordinates in the given colour. If Filled is checked the circle is filled, otherwise only an outline';
+Blockly.Msg.ARD_OLED_INIT = 'OLED Initialise';
+Blockly.Msg.ARD_OLED_DEFAULT_NAME = 'OLED1';
+Blockly.Msg.ARD_OLED_RESOLUTIE = 'with resolution';
+Blockly.Msg.ARD_OLED = 'OLED';
+Blockly.Msg.ARD_OLED_CONFIG_TIP = 'Define a display of the given resolution to use to write text to';
+Blockly.Msg.ARD_OLED_CURSORX = 'set cursor position X';
+Blockly.Msg.ARD_OLED_CURSORY = 'Y';
+Blockly.Msg.ARD_OLED_PRINT = 'print';
+Blockly.Msg.ARD_OLED_FONT_SIZE = 'choose font size';
+Blockly.Msg.ARD_OLED_FONT_TIP = 'Select the font size to use to write text from now on';
+Blockly.Msg.ARD_OLED_PRINT_TIP = 'Prepare to show the given text on the display in the given size. You need to use the write block to actually see it!';
+Blockly.Msg.ARD_OLED_WRITE = 'write to display';
+Blockly.Msg.ARD_OLED_WRITE_TIP = 'After you have printed text on the display, use this block to actually show the text.';
+Blockly.Msg.ARD_OLED_CLEAR = 'clear display';
+Blockly.Msg.ARD_OLED_CLEAR_TIP = 'Before writing new text to the display, use this block to clear it first.';
+
