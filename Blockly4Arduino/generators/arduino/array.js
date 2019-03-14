@@ -151,7 +151,7 @@ Blockly.Arduino['array_setIndex'] = function(block) {
   var value = Blockly.Arduino.valueToCode(block, 'VALUE',
                                           Blockly.Arduino.ORDER_ATOMIC) || '0';
 
-  var code = arrayName + '[' + at + '] = ' + value + ';';
+  var code = arrayName + '[' + at + '] = ' + value + ';\n';
   
   // give an error if at is a number, and not 0 to n-1 !
   if (at<=0 || at >0) {
@@ -190,4 +190,27 @@ Blockly.Arduino['array_setIndex'] = function(block) {
     block.setWarningText(null, 'toobig');
   }
   return code;
+};
+
+Blockly.Arduino['array_getLength'] = function(block) {
+  var arrayName = block.getFieldValue('ARRAYNAME');
+  
+  // Search for the length of the array
+  // Iterate through top level blocks to find array instance
+  var blocks = Blockly.mainWorkspace.getAllBlocks();
+  var setupInstancePresent = false;
+  var arlength = 0;
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].getArrayInstance;
+    if (func) {
+      var setupBlockInstanceName = func.call(blocks[x]);
+      if (arrayName == setupBlockInstanceName) {
+        setupInstancePresent = true;
+        arlength = blocks[x].getLengthArrayInstance();
+        break;
+      }
+    }
+  }
+  
+  return [arlength, Blockly.Arduino.ORDER_ATOMIC];
 };
